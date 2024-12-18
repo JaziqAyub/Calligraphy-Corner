@@ -86,6 +86,7 @@ const loginHandler = async (req, res) => {
   }
 };
 
+
 const forgotPassHandler = async (req, res) => {
   try {
     const { email } = req.body;
@@ -194,34 +195,36 @@ const resetPassHandler = async (req, res) => {
   }
 };
 
+
 const deleteUserHandler = async (req, res) => {
   try {
-    
-    const {email , password} = req.body
+
+    const { email, password } = req.body
     if (!email || !password) {
-      return res.status(400).json({message:"Please provide all credentials"})
+      return res.status(400).json({ message: "Please provide all credentials" })
     }
-    const user = await User.findOne({email})
+    const user = await User.findOne({ email })
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    const verifyPass =  await bcrypt.compare(password, user.password)
-    if (!verifyPass){
-      res.status(404).json({message:"Password does not match"})
+    const verifyPass = await bcrypt.compare(password, user.password)
+    if (!verifyPass) {
+      res.status(404).json({ message: "Password does not match" })
     }
-    await User.findOneAndDelete({email})
-    return res.status(200).json({message : "User deleted successfuly!"})
+    await User.findOneAndDelete({ email })
+    return res.status(200).json({ message: "User deleted successfuly!" })
 
   } catch (error) {
-    console.error( error)
-    res.status(500).json({message:"Server error!"})
+    console.error(error)
+    res.status(500).json({ message: "Server error!" })
   }
 }
 
+
 const getUser = async (req, res) => {
   try {
-    const {email} = req.body;
-    const user = await User.findOne({email})
+    const { email } = req.body;
+    const user = await User.findOne({ email })
 
     if (user) {
       res.status(200).json({ message: "User Found", payload: user });
@@ -234,4 +237,49 @@ const getUser = async (req, res) => {
   }
 };
 
-module.exports = { registerHandler, loginHandler, forgotPassHandler, resetPassHandler , deleteUserHandler, getUser}
+
+const changePasshandler = async (req, res) => {
+  try {
+    // const { email } = req.body;
+
+    const { email, oldPass, newPass, confirmPass } = req.body;
+
+    if (!email || !oldPass || !newPass || !confirmPass) {
+      return res.status(400).json({
+        message: "All fields are required.",
+      });
+    }
+
+    if (newPass !== confirmPass) {
+      return res.status(400).json({
+        message: "New Password and Confirm Password do not match.",
+      });
+    }
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ messgae: "User not found!" });
+    }
+
+    const verifyPass = await bcrypt.compare(oldPass, user.password);
+
+    if (verifyPass) {
+      const hashPass = await bcrypt.hash(newPass, 10);
+
+      await User.findOneAndUpdate(user._id, {
+        password: hashPass,
+      });
+
+      res.status(200).json({ message: "Password changed Succesfully!" });
+    } else {
+      res.status(400).json({ message: "Old password is incorrect!" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+    console.log(error);
+  }
+};
+
+
+module.exports = { registerHandler, loginHandler, forgotPassHandler, resetPassHandler, deleteUserHandler, getUser, changePasshandler }
