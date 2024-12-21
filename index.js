@@ -2,9 +2,14 @@ const express = require("express") //import express from node modules
 const { registerHandler, loginHandler, forgotPassHandler, resetPassHandler, deleteUserHandler, getUser, changePasshandler } = require("./controllers/userController")
 const connectDb = require("./config/connectDb")
 const app = express() //instance of express
+const cors = require("cors") 
 
 //middleware
 app.use(express.json()) //to read json in thunderclient etc
+app.use(cors()) //fo safety in b/w ports from front end to back end and vice versa
+
+
+
 
 //To connect with the Db
 connectDb()

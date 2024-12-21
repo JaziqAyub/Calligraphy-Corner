@@ -18,26 +18,17 @@ const registerHandler = async (req, res) => {
       const findUser = await User.findOne({ email })
       if (findUser) {
         return res.json({ message: "User already exists." })
-
       }
-
+            
       const hashPass = await bcrypt.hash(password, 10)
       const createUser = await User.create({ username, email, password: hashPass })
       if (createUser) {
         return res.json({ message: "User created succesfully!" })
-      }
-
-
+      } 
 
     } else {
       res.json({ message: "All credentials required." })
     }
-
-
-
-
-
-
 
   } catch (error) {
     console.error(error)
