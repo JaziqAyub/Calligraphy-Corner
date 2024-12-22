@@ -62,17 +62,20 @@ const loginHandler = async (req, res) => {
     if (!passverify) {
       return res.status(400).json({ message: "Password incorrect!" });
     }
+  
+    if (passverify) {
+      const userId = user._id;
+      const secretKey = "secretKey";
+      const token = jwt.sign({ userId }, secretKey);
+    }
 
-    const userId = user._id;
-    const secretKey = "secretKey";
-    const token = jwt.sign({ userId }, secretKey);
 
     return res.status(200).json({
-      message: "Logged in successfully!",
+      message: "Logged in successflly!",
       token: token,
       userId: userId
     });
-
+ 
 
   } catch (error) {
     console.error(error);
