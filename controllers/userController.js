@@ -12,7 +12,9 @@ const registerHandler = async (req, res) => {
 
     const { username, email, password } = req.body
 
-
+    if (!username || !email ||!password ){
+     return res.status(404).json({message:"All credentials required"})
+    }
     if (username !== "" && email !== "" && password !== "") {
 
       const findUser = await User.findOne({ email })
@@ -27,7 +29,7 @@ const registerHandler = async (req, res) => {
       } 
 
     } else {
-      res.json({ message: "All credentials required." })
+     return res.json({ message: "All credentials required." })
     }
 
   } catch (error) {
@@ -68,6 +70,7 @@ const loginHandler = async (req, res) => {
     return res.status(200).json({
       message: "Logged in successfully!",
       token: token,
+      userId: userId
     });
 
 
@@ -214,8 +217,8 @@ const deleteUserHandler = async (req, res) => {
 
 const getUser = async (req, res) => {
   try {
-    const { email } = req.body;
-    const user = await User.findOne({ email })
+    const { userId } = req.params;
+    const user = await User.findById( userId )
 
     if (user) {
       res.status(200).json({ message: "User Found", payload: user });
@@ -227,7 +230,7 @@ const getUser = async (req, res) => {
     res.status(500).json("server Error");
   }
 };
-
+ 
  
 const changePasshandler = async (req, res) => {
   try {

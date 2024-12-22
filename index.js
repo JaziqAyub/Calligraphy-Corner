@@ -16,12 +16,12 @@ connectDb()
 
 // Apis (routes) 
 app.get("/", (req, res) => { res.json({ message: "Hello!" }) })
-app.post("/user/register", registerHandler)
+app.post("/user/register", registerHandler) //done
 app.post("/user/login", loginHandler)
 app.post("/user/forgotPass", forgotPassHandler)
 app.post("/user/password/reset/:userId", resetPassHandler)
 app.post("/user/delete/", deleteUserHandler)
-app.post("/getUser/", getUser)
+app.get("/getUser/:userId", getUser)
 app.post("/user/changePassword", changePasshandler)
 
 const PORT = 4011
