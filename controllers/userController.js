@@ -13,10 +13,8 @@ const registerHandler = async (req, res) => {
     const { username, email, password } = req.body
 
     if (!username || !email ||!password ){
-     return res.status(404).json({message:"All credentials required"})
+     return res.status(400).json({message:"All credentials required"})
     }
-    if (username !== "" && email !== "" && password !== "") {
-
       const findUser = await User.findOne({ email })
       if (findUser) {
         return res.json({ message: "User already exists." })
@@ -28,7 +26,7 @@ const registerHandler = async (req, res) => {
         return res.json({ message: "User created succesfully!" })
       } 
 
-    } else {
+     else {
      return res.json({ message: "All credentials required." })
     }
 
@@ -71,7 +69,7 @@ const loginHandler = async (req, res) => {
     const token = jwt.sign({ userId }, secretKey);
 
     return res.status(200).json({
-      message: "Logged in successflly!",
+      message: "Logged in successfully!",
       token: token,
       userId: userId
     });
