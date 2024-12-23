@@ -1,0 +1,24 @@
+/* .footer {
+  text-align: center;
+  background-color: bisque;
+  color: rgb(112, 95, 95);
+} */
+
+/* Footer container */
+.footer {
+  background: linear-gradient(135deg, #1c1c1c, #343434);
+  color: #f5f5f5;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Hover effect */
+.footer:hover {
+  color: #ffbf00;
+}
