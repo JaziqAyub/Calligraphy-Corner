@@ -7,7 +7,7 @@
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .navbar ul {
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; 
+  margin: 0 auto;
   padding: 0;
   gap: 2rem;
   flex: 1;
@@ -41,31 +41,39 @@
 }
 
 .navbar > .login-container {
-  margin-left: auto; 
+  display: flex;
+  align-items: center;
+  margin-left: auto;
   color: white;
   font-style: italic;
 }
 .login-button {
-  background-color: #f3ecec;
+  background-color: #252323;
   color: #272424;
   font-size: 1rem;
-  padding: 8px 16px;
+  padding: 7px 14px;
   border: 2px solid #222;
   border-radius: 5px;
   cursor: pointer;
-  text-decoration: none;
+  margin-right: 5px;
 }
 
 .login-button a {
-  color: #272424;
+  color: #b3b2b2;
   text-decoration: none;
 }
+.login-button:hover {
+  background: white;
+  >a{
+    color: #000000;
+  }
+}
 
-.menubar{
+.menubar {
   display: none;
   font-size: 2rem;
   color: rgb(253, 253, 253);
-  >ul{
+  > ul {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -74,92 +82,103 @@
     top: 64.35px;
     width: 50vh;
     height: 84.69vh;
-   
   }
 }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    background: linear-gradient(135deg, #1c1c1c, #343434);
-    padding: 1rem 2rem;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
+.logo {
+  display: none;
+}
+
+.logowhole > a > img {
+  width: 100%;
+  height: 45px; 
+  /* object-fit: contain; */
+}
+
+.dropdown{
+ >ul{
+  background-color: black;
+  >li{
+    position: absolute;
+    top: 90px;
+   color: brown;
   }
-  
+ }
+}
+@media screen and (max-width: 768px) {
+
   .navbar ul {
     list-style-type: none;
     display: none;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto; 
-    padding: 0;
-    gap: 2rem;
-    flex: 1;
   }
-  
-  .navbar ul li {
-    font-size: 1.1rem;
-    font-weight: 500;
-  }
-  
-  .navbar ul li a {
-    color: #f5f5f5;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    border-radius: 5px;
-  }
-  
-  .navbar ul li a:hover {
-    background: #ffbf00;
-    color: #1c1c1c;
-    box-shadow: 0 4px 15px rgba(255, 191, 0, 0.5);
-  }
-  
+
   .navbar > .login-container {
-    margin-left: auto; 
+    display: flex;
+    align-items: center;
+    margin-left: auto;
     color: white;
     font-style: italic;
   }
   .login-button {
-    background-color: #f3ecec;
+    background-color: #252323;
     color: #272424;
     font-size: 1rem;
-    padding: 8px 16px;
+    padding: 7px 14px;
     border: 2px solid #222;
     border-radius: 5px;
     cursor: pointer;
-    text-decoration: none;
+    margin-right: 5px;
   }
-  
+
   .login-button a {
-    color: #272424;
+    color: #b3b2b2;
     text-decoration: none;
   }
-  
-  .menubar{
+  .login-button:hover {
+    background: white;
+    >a{
+      color: #000000;
+    }
+  }
+
+  .menubar {
     display: flex;
     font-size: 2rem;
     color: rgb(253, 253, 253);
-    >ul{
+    cursor: pointer;
+    > ul {
       display: flex;
       flex-direction: column;
       position: absolute;
       left: 0;
-      background-color: rgb(41, 39, 39); background: linear-gradient(135deg, #1c1c1c, #343434);    
-      top: 64.35px;
+      background: linear-gradient(135deg, #1c1c1c, #343434);
+      top:86px;
       width: 50vh;
-      height: 84.69vh;
-      >li{
+      height:81.69vh;
+      > li {
         font-size: 2rem;
       }
-     
     }
   }
- 
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .logo > a > img {
+    width: 100%;
+    height: 50px; 
+    object-fit: contain;
+  }
+
+  .logowhole{
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
 }
