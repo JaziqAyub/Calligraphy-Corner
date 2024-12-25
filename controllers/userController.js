@@ -22,15 +22,15 @@ const registerHandler = async (req, res) => {
             
       const hashPass = await bcrypt.hash(password, 10)
       const createUser = await User.create({ username, email, password: hashPass })
-      if (createUser) {
+      if (createUser) { 
         return res.json({ message: "User created succesfully!" })
       } 
-
+   
      else {
      return res.json({ message: "All credentials required." })
     }
 
-  } catch (error) {
+  } catch (error) { 
     console.error(error)
   }
 }
