@@ -20,26 +20,20 @@ const Navbar = (props) => {
 
   return (
     <div className="navbar">
-       <div className="logowhole">
-          <Link to="/"> 
-          <img src={logo} alt="Logo" /> 
-          </Link>
-        </div>
+      <div className="logowhole">
+        <Link to="/">
+          <img src={logo} alt="Logo" />
+        </Link>
+      </div>
       <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/user/login">Login</Link>
-        </li>
-        <li>
           <Link to="/user/register">Register</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/user/login">Login</Link>
         </li>
       </ul>
 
@@ -47,53 +41,66 @@ const Navbar = (props) => {
         <GiHamburgerMenu />
 
         {showSideNav && (
-          <ul className="animate__animated animate__slideInLeft">  
+          <ul className="animate__animated animate__slideInLeft">
             <li>
-               <Link to="/"><FaHome/> Home</Link>
+              <Link to="/">
+                <FaHome /> Home
+              </Link>
             </li>
             <li>
-              <Link to="/user/login"> <TbLogin2/> Login</Link>
+              <Link to="/user/login">
+                {" "}
+                <TbLogin2 /> Login
+              </Link>
             </li>
             <li>
-               <Link to="/user/register"><MdCreate/> Register</Link>
+              <Link to="/user/register">
+                <MdCreate /> Register
+              </Link>
             </li>
             <li>
-           <Link to="/about"> <IoIosInformationCircleOutline/> About</Link>
+              <Link to="/about">
+                {" "}
+                <IoIosInformationCircleOutline /> About
+              </Link>
             </li>
             <li>
-             <Link to="/contact"><MdOutlineLocalPhone/> Contact</Link>
+              <Link to="/contact">
+                <MdOutlineLocalPhone /> Contact
+              </Link>
             </li>
           </ul>
         )}
       </div>
 
-        <div className="logo">
-          <Link to="/"> 
-          <img src={logo} alt="Logo" /> 
-          </Link>
-        </div>
-      
+      <div className="logo">
+        <Link to="/">
+          <img src={logo} alt="Logo" />
+        </Link>
+      </div>
 
       <div className="login-container">
-        {username ? `Welcome ${username}` : 
+        {username ? (
+          `Welcome ${username}`
+        ) : (
           <button className="login-button">
-            <Link to="/user/login">Login</Link> 
+            <Link to="/user/login">Login</Link>
           </button>
-        }
-        <div onClick={handleNav} className="dropdown">
-          <BsThreeDotsVertical />
-          {
-            showSideNav &&
-            <ul>
-              <li>Settings</li>
-            </ul>
-          }
-          
-          
-          
-          
-          
-          </div>
+        )}
+      </div>
+
+      <div onClick={handleNav} className="dropdown">
+        <BsThreeDotsVertical />
+        {showSideNav && (
+          <ul>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        )}
       </div>
     </div>
   );
