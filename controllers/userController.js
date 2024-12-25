@@ -91,15 +91,16 @@ const forgotPassHandler = async (req, res) => {
     }
 
     const user = await User.findOne({ email });
-    const id = user._id
 
     if (!user) {
       return res.status(400).json({ message: "User Not found , Kindly Register." });
     }
 
     // const passwordResetLink = `http://localhost:4000/user/password/reset/${id}`;
+    const id = user._id
 
-    const passwordResetLink = `http://localhost:4011/user/password/reset/${id}`;
+    // const passwordResetLink = `http://localhost:4011/user/password/reset/${id}`; for backend
+    const passwordResetLink = `http://localhost:3000/user/resetPass/${id}`; // for frontEnd
 
     // const sendMail = await transporter.sendMail({
 
@@ -169,6 +170,10 @@ const resetPassHandler = async (req, res) => {
     const { newPass, confirmPass } = req.body;
 
     const { userId } = req.params;
+
+    if (!newPass || !confirmPass){
+      return res.status(400).json({message: "All credentials required"})
+    }
 
     if (newPass !== confirmPass) {
       return res.status(400).json("Password Does not match!");
