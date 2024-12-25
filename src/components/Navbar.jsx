@@ -3,11 +3,13 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import logo from "./assets/logo.png";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaInfo } from "react-icons/fa";
 import { TbLogin2 } from "react-icons/tb";
 import { MdCreate, MdOutlineLocalPhone } from "react-icons/md";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
 const Navbar = (props) => {
   const username = props.user;
@@ -69,6 +71,15 @@ const Navbar = (props) => {
                 <MdOutlineLocalPhone /> Contact
               </Link>
             </li>
+            <li>
+              {username ? (
+                <Link to="">
+                  <RiLogoutBoxLine /> Logout
+                </Link>
+              ) : (
+                ""
+              )}
+            </li>
           </ul>
         )}
       </div>
@@ -94,10 +105,23 @@ const Navbar = (props) => {
         {showSideNav && (
           <ul>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about">
+                <FaInfo /> About
+              </Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact">
+                <BiSolidPhoneCall /> Contact
+              </Link>
+            </li>
+            <li>
+              {username ? (
+                <Link to="/contact">
+                  <RiLogoutBoxLine /> Logout
+                </Link>
+              ) : (
+                ""
+              )}
             </li>
           </ul>
         )}

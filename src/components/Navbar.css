@@ -97,7 +97,8 @@
 
 .dropdown  {
   display: flex;
-  font-size: 1.7rem;
+  font-size: 1.5em;
+  margin-left: 5px;
   color: rgb(253, 253, 253);
   cursor: pointer;
   > ul {
@@ -115,6 +116,10 @@
   }
 }
 
+.dropdown:hover{
+    display: flex;
+    color: rgb(255, 255, 0);
+}  
 
 @media screen and (max-width: 668px) {
   .navbar ul {
@@ -171,6 +176,9 @@
     }
   }
 
+  .menubar:hover{
+    color: rgb(200, 150, 15);
+  }
   .logo {
     display: flex;
     justify-content: center;

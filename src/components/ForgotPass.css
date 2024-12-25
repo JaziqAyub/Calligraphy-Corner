@@ -1,0 +1,84 @@
+/* Container styling */
+.forgotpasscontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Subtle gradient */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form styling */
+form {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Input styling */
+form input {
+    width: 90%;
+    padding: 12px;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button container */
+.forgotbtn {
+    margin-top: 10px;
+}
+
+/* Button styling */
+.forgotbtn button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.forgotbtn button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.forgotbtn button:active {
+    background-color: #003f7f;
+    transform: scale(0.98);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    form input {
+        width: 100%;
+    }
+
+    .forgotbtn button {
+        width: 100%;
+    }
+}

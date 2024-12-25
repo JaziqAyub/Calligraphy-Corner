@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Register from "./components/Register";
 import axios from "axios";
 import Login from "./components/Login";
+import ForgotPass from "./components/ForgotPass";
 
 const App = () => {
   const message =
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/user/register" element={<Register />} />
           <Route path="/user/login" element={<Login setLoggedIn = {setLoggedIn} />} />
+          <Route path="/user/forgotpass" element={<ForgotPass/>} />
         </Routes>
       </div>
 

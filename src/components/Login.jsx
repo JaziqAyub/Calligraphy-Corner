@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import "./Login.css"
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -66,8 +67,10 @@ const Login = (props) => {
               setPassword(e.target.value);
             }}
           />
-
           <button onClick={handleLogin}>Submit</button>
+          <div className="forgotpass">
+             <Link to="/user/forgotpass">Forgot Password?</Link>     
+          </div>
         </form>
       </div>
     </>
