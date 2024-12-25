@@ -1,84 +1,76 @@
-/* Container styling */
 .forgotpasscontainer {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Subtle gradient */
-    font-family: 'Arial', sans-serif;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #1c1c1c, #343434);
 }
 
-/* Form styling */
-form {
+/* Form box */
+.forgotpasscontainer form {
+    background: #222;
+    color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 255, 255, 0.1);
     width: 100%;
     max-width: 400px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
 }
 
-/* Input styling */
-form input {
-    width: 90%;
-    padding: 12px;
-    margin: 15px auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box;
+/* Input container */
+.forgotpasscontainer .input-container {
+    width: 92%;
+}
+
+/* Input fields */
+.forgotpasscontainer form input {
+    padding: 0.9rem;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #f5f5f5;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.forgotpasscontainer form input:focus {
+    border-color: #ff6600;
     outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-form input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    background: #292929;
+    box-shadow: 0 0 5px rgba(255, 191, 0, 0.5);
 }
 
 /* Button container */
-.forgotbtn {
-    margin-top: 10px;
-}
-
-/* Button styling */
-.forgotbtn button {
+.forgotpasscontainer .forgotbtn {
     width: 100%;
-    max-width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
+}
+
+/* Button for sending the reset link */
+.forgotpasscontainer .forgotbtn button {
+    background: linear-gradient(135deg, #ffbf00, #ffaa00);
+    color: #1c1c1c;
     border: none;
-    border-radius: 4px;
+    padding: 0.9rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: all 0.3s ease;
+    width: 100%;
 }
 
-.forgotbtn button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+.forgotpasscontainer .forgotbtn button:hover {
+    background: linear-gradient(135deg, #ffaa00, #ffbf00);
+    transform: scale(1.03);
+    color: #111;
 }
 
-.forgotbtn button:active {
-    background-color: #003f7f;
-    transform: scale(0.98);
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
-    form {
-        padding: 15px;
-    }
-
-    form input {
-        width: 100%;
-    }
-
-    .forgotbtn button {
-        width: 100%;
-    }
+/* Subtle hover glow on the form */
+.forgotpasscontainer form:hover {
+    box-shadow: 0 6px 50px rgba(255, 191, 0, 0.2);
 }

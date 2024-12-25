@@ -10,6 +10,8 @@ import Register from "./components/Register";
 import axios from "axios";
 import Login from "./components/Login";
 import ForgotPass from "./components/ForgotPass";
+import ResetPass from "./components/ResetPass";
+import NoPageFound from "./components/NoPageFound";
 
 const App = () => {
   const message =
@@ -45,12 +47,15 @@ const App = () => {
       <Navbar user = {username}/>
       <div className="main">
         <Routes>
+        <Route path="*" element={<NoPageFound />} />
+
           <Route path="/" element={<Home message={message} happy={happy} user = {username}/>} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/user/register" element={<Register />} />
           <Route path="/user/login" element={<Login setLoggedIn = {setLoggedIn} />} />
           <Route path="/user/forgotpass" element={<ForgotPass/>} />
+          <Route path="/user/resetPass/:userId" element={<ResetPass/>} />
         </Routes>
       </div>
 
