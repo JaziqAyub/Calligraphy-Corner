@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import logo from "./assets/logo.png";
 import { FaHome, FaInfo } from "react-icons/fa";
 import { TbLogin2 } from "react-icons/tb";
-import { MdCreate, MdOutlineLocalPhone } from "react-icons/md";
+import { MdCreate, MdDelete, MdOutlineLocalPhone } from "react-icons/md";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { RiLogoutBoxLine } from "react-icons/ri";
+// import { DeleteUser } from "./DeleteUser";
 
 const Navbar = (props) => {
   const username = props.user;
@@ -19,6 +20,9 @@ const Navbar = (props) => {
   function handleNav() {
     setShowSideNav(!showSideNav);
   }
+
+  const navigate = useNavigate();
+  const userId = localStorage.getItem("userId");
 
   return (
     <div className="navbar">
@@ -71,6 +75,15 @@ const Navbar = (props) => {
                 <MdOutlineLocalPhone /> Contact
               </Link>
             </li>
+            <li
+              onClick={() => {
+                navigate(`user/delete/${userId}`);
+              }}
+            >
+              {/* <Link to={DeleteUser}> */}
+                <MdDelete /> Delete Account
+              {/* </Link> */}
+            </li>
             <li>
               {username ? (
                 <Link to="">
@@ -113,6 +126,17 @@ const Navbar = (props) => {
               <Link to="/contact">
                 <BiSolidPhoneCall /> Contact
               </Link>
+            </li>
+            {/* another way of giving userid in param and etc as we used to do
+            mainly in the dedicaed page, we can do those things here as well : */}
+            <li
+              onClick={() => {
+                navigate(`user/delete/${userId}`);
+              }}
+            >
+              {/* <Link to={DeleteUser}> */}
+                <MdDelete /> Delete Account
+              {/* </Link> */}
             </li>
             <li>
               {username ? (

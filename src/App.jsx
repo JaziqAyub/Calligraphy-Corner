@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import ForgotPass from "./components/ForgotPass";
 import ResetPass from "./components/ResetPass";
 import NoPageFound from "./components/NoPageFound";
+import { DeleteUser } from "./components/DeleteUser";
 
 const App = () => {
   const message =
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/user/login" element={<Login setLoggedIn = {setLoggedIn} />} />
           <Route path="/user/forgotpass" element={<ForgotPass/>} />
           <Route path="/user/resetPass/:userId" element={<ResetPass/>} />
+          <Route path="/user/delete/:userId" element={<DeleteUser/>} />
         </Routes>
       </div>
 
