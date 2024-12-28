@@ -13,6 +13,7 @@ import ForgotPass from "./components/ForgotPass";
 import ResetPass from "./components/ResetPass";
 import NoPageFound from "./components/NoPageFound";
 import { DeleteUser } from "./components/DeleteUser";
+import { SecureProfile } from "./components/SecureProfile";
 
 const App = () => {
   const message =
@@ -48,8 +49,8 @@ const App = () => {
       <Navbar user = {username}/>
       <div className="main">
         <Routes>
-        <Route path="*" element={<NoPageFound />} />
-
+          {/* guestRoutes  */}
+          <Route path="*" element={<NoPageFound />} />
           <Route path="/" element={<Home message={message} happy={happy} user = {username}/>} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -57,7 +58,10 @@ const App = () => {
           <Route path="/user/login" element={<Login setLoggedIn = {setLoggedIn} />} />
           <Route path="/user/forgotpass" element={<ForgotPass/>} />
           <Route path="/user/resetPass/:userId" element={<ResetPass/>} />
+
+          {/* secureRoutes  */}
           <Route path="/user/delete/:userId" element={<DeleteUser/>} />
+          <Route path="/user/secureprofile" element={<SecureProfile/>} />
         </Routes>
       </div>
 

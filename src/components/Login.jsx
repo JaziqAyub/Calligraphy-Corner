@@ -25,11 +25,11 @@ const Login = (props) => {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("userId", response.data.userId);
         props.setLoggedIn(true)
-        // toast.success(response.data.message);
+        toast.success(response.data.message);
 
-        // setTimeout(() => {
+        setTimeout(() => {
           navigate("/");
-        // }, 3000);
+        }, 3000);
       } else if (response.data.message === "All credentials Required!") {
         toast.success(response.data.message);
       } else {

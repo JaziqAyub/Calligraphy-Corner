@@ -66,7 +66,6 @@ const Navbar = (props) => {
             </li>
             <li>
               <Link to="/about">
-                {" "}
                 <IoIosInformationCircleOutline /> About
               </Link>
             </li>
@@ -80,9 +79,9 @@ const Navbar = (props) => {
                 navigate(`user/delete/${userId}`);
               }}
             >
-              {/* <Link to={DeleteUser}> */}
+              <Link>
                 <MdDelete /> Delete Account
-              {/* </Link> */}
+              </Link>
             </li>
             <li>
               {username ? (
@@ -134,9 +133,9 @@ const Navbar = (props) => {
                 navigate(`user/delete/${userId}`);
               }}
             >
-              {/* <Link to={DeleteUser}> */}
+              <Link>
                 <MdDelete /> Delete Account
-              {/* </Link> */}
+              </Link>
             </li>
             <li>
               {username ? (

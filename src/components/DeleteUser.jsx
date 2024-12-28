@@ -20,8 +20,11 @@ export const DeleteUser = () => {
         const res = await axios.post(url, formData);
         toast.success(res.data.message);
         localStorage.clear()
+        toast.success(res.data.message)
         console.log(res);
+        setTimeout(()=>{
         navigate("/")
+        }, [3000])
       } catch (error) {
         console.error(error);
         toast.error(error.response.data.message);
@@ -30,7 +33,7 @@ export const DeleteUser = () => {
  
     return (
         <div className="forgotpasscontainer">
-          <ToastContainer position="top-center" />
+          <ToastContainer position="top-center"/>
     
           <form>
             <div className="input-container">
