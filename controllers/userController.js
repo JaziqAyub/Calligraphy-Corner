@@ -2,6 +2,8 @@ const { User } = require("../models/userModel")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 const { transporter } = require("../utils/nodemailer")
+require("dotenv").config()
+
 
 const registerHandler = async (req, res) => {
   try {
@@ -65,7 +67,7 @@ const loginHandler = async (req, res) => {
       return res.status(400).json({ message: "Password incorrect!" });
     }
     const userId = user._id;
-    const secretKey = "secretKey";
+    const secretKey = process.env.SECRET_KEY;
     const token = jwt.sign({ userId }, secretKey);
 
     return res.status(200).json({

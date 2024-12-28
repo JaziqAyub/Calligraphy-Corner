@@ -4,6 +4,7 @@ const connectDb = require("./config/connectDb")
 const app = express() //instance of express
 const cors = require("cors") 
 const { isAuthorised } = require("./auth/isAuthorised")
+require("dotenv").config() //.ENV
 
 //middleware
 app.use(express.json()) //to read json in thunderclient etc
@@ -29,6 +30,6 @@ app.post("/user/changePassword", changePasshandler) //done
 app.get("/user/isAuth/:token", isAuthorised) 
  
 
-const PORT = 4011
+const PORT = process.env.PORT
  
 app.listen(PORT, () => { console.log(`Server listening on port ${PORT}`) })
