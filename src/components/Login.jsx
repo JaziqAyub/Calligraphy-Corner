@@ -1,8 +1,9 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+// import axios from "axios";
+import React, { useContext, useState } from "react";
+import { Link} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./Login.css"
+import { ContextJ } from "../context/Actions";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -12,39 +13,40 @@ const Login = (props) => {
     email,
     password,
   };
-  const url = "http://localhost:4011/user/login";
 
-  const navigate = useNavigate();
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    // above line cause to prevent button default nehaviour whihc is submititing the form
-    try {
-      const response = await axios.post(url, formData);
-      console.log(response);
-      if (response.data.message === "Logged in successfully!") {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("userId", response.data.userId);
-        props.setLoggedIn(true)
-        toast.success(response.data.message);
+  const {handleLogin} = useContext(ContextJ)
+  // const url = "http://localhost:4011/user/login";
+  // const navigate = useNavigate();
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   // above line cause to prevent button default nehaviour whihc is submititing the form
+  //   try {
+  //     const response = await axios.post(url, formData);
+  //     console.log(response);
+  //     if (response.data.message === "Logged in successfully!") {
+  //       localStorage.setItem("token", response.data.token);
+  //       localStorage.setItem("userId", response.data.userId);
+  //       props.setLoggedIn(true)
+  //       toast.success(response.data.message);
 
-        setTimeout(() => {
-          navigate("/");
-        }, 3000);
-      } else if (response.data.message === "All credentials Required!") {
-        toast.success(response.data.message);
-      } else {
-        toast.error(response.data.message);
-      }
-    } catch (error) {
-      if (error.response.status === 400) {
-        toast.error(error.response.data.message);
-      } else {
-      toast.error("Server error");
+  //       setTimeout(() => {
+  //         navigate("/");
+  //       }, 3000);
+  //     } else if (response.data.message === "All credentials Required!") {
+  //       toast.success(response.data.message);
+  //     } else {
+  //       toast.error(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     if (error.response.status === 400) {
+  //       toast.error(error.response.data.message);
+  //     } else {
+  //     toast.error("Server error");
 
-      }
-      console.error(error);
-    }
-  };
+  //     }
+  //     console.error(error);
+  //   }
+  //   };
 
   return (
     <>
@@ -67,7 +69,7 @@ const Login = (props) => {
               setPassword(e.target.value);
             }}
           />
-          <button onClick={handleLogin}>Submit</button>
+          <button onClick={(e)=>{handleLogin(e, formData)}}>Submit</button>
           <div className="forgotpass">
              <Link to="/user/forgotpass">Forgot Password?</Link>     
           </div>

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, {   useState } from "react";
 import Card from "../sharedComponent/Card";
 import "./Home.css";
 
@@ -34,14 +34,11 @@ const Home = (props) => {
     setEnableDarkMode(!enableDarkMode)
   }
 
-
-
-
-
-
+  // const {store} = useContext(ContextJ)
   return (
     <div className={enableDarkMode ? "home-container-dark" : "home-container"}>
       <h1> {props.message} {props.user}</h1>
+      {/* <h1> {props.message} {store.username}</h1> */}
       <div className="card-container">
         <Card happyMessage={props.happy} shop={shop} />
       </div>

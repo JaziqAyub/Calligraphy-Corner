@@ -1,45 +1,49 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Register.css";
-import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import { ContextJ } from "../context/Actions";
+// import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  const {handleRegister} = useContext(ContextJ)
+
   const formData = {
     username,
     email,
     password,
   };
-  const url = "http://localhost:4011/user/register";
-  const navigate = useNavigate();
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    // above line cause to prevent button default nehaviour whihc is submititing the form
-    try {
-      const response = await axios.post(url, formData);
-      if (response.data.message === "User created succesfully!") {
-        toast.success(response.data.message);
-        setTimeout(() => {
-          navigate("/user/login");
-        }, 3000);
-      } else {
-        toast.error(response.data.message);
-      }
-    } catch (error) {
-      if (error.response.status === 400) {
-        toast.error(error.response.data.message);
-      } else {  
-      toast.error("Server error");
+  // const url = "http://localhost:4011/user/register";
+  // const navigate = useNavigate();
+  // const handleRegister = async (e) => {
+  //   e.preventDefault();
+  //   // above line cause to prevent button default nehaviour whihc is submititing the form
+  //   try {
+  //     const response = await axios.post(url, formData);
+  //     if (response.data.message === "User created succesfully!") {
+  //       toast.success(response.data.message);
+  //       setTimeout(() => {
+  //         navigate("/user/login");
+  //       }, 3000);
+  //     } else {
+  //       toast.error(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     if (error.response.status === 400) {
+  //       toast.error(error.response.data.message);
+  //     } else {  
+  //     toast.error("Server error");
 
-      }
+  //     }
 
-      console.error(error);
-    }
-  };
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <>
@@ -71,7 +75,7 @@ const Register = () => {
             }}
           />
 
-          <button onClick={handleRegister}>Submit</button>
+          <button onClick={(e)=>{handleRegister(e,formData)}}>Submit</button>
         </form>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -10,10 +10,13 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { ContextJ } from "../context/Actions";
 // import { DeleteUser } from "./DeleteUser";
 
-const Navbar = (props) => {
-  const username = props.user;
+const Navbar = () => {
+  // const username = props.user;
+  // const {username, loading} = useContext(ContextJ)
+  const {username} = useContext(ContextJ)
 
   const [showSideNav, setShowSideNav] = useState(false);
 
@@ -55,7 +58,6 @@ const Navbar = (props) => {
             </li>
             <li>
               <Link to="/user/login">
-                {" "}
                 <TbLogin2 /> Login
               </Link>
             </li>
