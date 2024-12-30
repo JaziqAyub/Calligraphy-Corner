@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, {  useContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import "./global.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Register from "./components/Register";
@@ -14,7 +14,7 @@ import ResetPass from "./components/ResetPass";
 import NoPageFound from "./components/NoPageFound";
 import { DeleteUser } from "./components/DeleteUser";
 import { SecureProfile } from "./components/SecureProfile";
-import { ContextJ } from "./context/Actions";
+import { ContextJ } from "./context/Store";
 
 const App = () => {
   const message =
@@ -25,9 +25,11 @@ const App = () => {
   // const userId = localStorage.getItem("userId")
   // const [loggedIn, setLoggedIn] = useState(false)
 
+  const { fetchData, loading } = useContext(ContextJ);
+  const userId = localStorage.getItem("userId");
 
-  const {fetchData, userId, loading} = useContext(ContextJ)
-  // getUser of  backend 
+
+  // getUser of  backend
   //   const fetchData = async (userId) => {
   //   if (!userId) return;
   //   try {
@@ -41,15 +43,14 @@ const App = () => {
   // };
 
   useEffect(() => {
-      if(loading){
+    if (userId !== null) {
       fetchData(userId);
-      } 
-  }, [userId, loading, fetchData]);
-  
+    }
+  }, [loading, userId]);
 
   return (
-    <BrowserRouter>
-      <Navbar/>
+    <>
+      <Navbar />
       <div className="main">
         <Routes>
           {/* guestRoutes  */}
@@ -60,17 +61,17 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/user/register" element={<Register />} />
           <Route path="/user/login" element={<Login />} />
-          <Route path="/user/forgotpass" element={<ForgotPass/>} />
-          <Route path="/user/resetPass/:userId" element={<ResetPass/>} />
+          <Route path="/user/forgotpass" element={<ForgotPass />} />
+          <Route path="/user/resetPass/:userId" element={<ResetPass />} />
 
           {/* secureRoutes  */}
-          <Route path="/user/delete/:userId" element={<DeleteUser/>} />
-          <Route path="/user/secureprofile" element={<SecureProfile/>} />
+          <Route path="/user/delete/:userId" element={<DeleteUser />} />
+          <Route path="/user/secureprofile" element={<SecureProfile />} />
         </Routes>
       </div>
 
       <Footer />
-    </BrowserRouter>
+    </>
   );
 };
 export default App;

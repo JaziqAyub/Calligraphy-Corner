@@ -10,7 +10,7 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { RiLogoutBoxLine } from "react-icons/ri";
-import { ContextJ } from "../context/Actions";
+import { ContextJ } from "../context/Store";
 // import { DeleteUser } from "./DeleteUser";
 
 const Navbar = () => {
