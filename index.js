@@ -4,6 +4,7 @@ const connectDb = require("./config/connectDb")
 const app = express() //instance of express
 const cors = require("cors") 
 const { isAuthorised } = require("./auth/isAuthorised")
+const { isAuthenticated } = require("./auth/isAuthenticated")
 require("dotenv").config() //.ENV
 
 //middleware
@@ -22,13 +23,16 @@ app.post("/user/register", registerHandler) //done
 app.post("/user/login", loginHandler) //done
 app.post("/user/forgotPass", forgotPassHandler) //done
 app.put("/user/password/reset/:userId", resetPassHandler) //done
-app.post("/user/delete/:userId", deleteUserHandler) //done
-app.get("/getUser/:userId", getUser) //done
-app.post("/user/changePassword", changePasshandler) //done
+app.get("/user/isAuth/:token", isAuthorised) 
+
 
 //secureRoute
-app.get("/user/isAuth/:token", isAuthorised) 
- 
+app.post("/user/delete/:userId", deleteUserHandler) //done
+app.get("/getUser/:userId",  getUser) //done
+app.post("/user/changePassword",  changePasshandler) //done
+
+
+//sellerRoutes
 
 const PORT = process.env.PORT
  
