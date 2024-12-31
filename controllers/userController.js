@@ -63,9 +63,6 @@ const loginHandler = async (req, res) => {
       return res.status(400).json({ message: "Password incorrect!" });
     }
   
-     if (!passverify) {
-      return res.status(400).json({ message: "Password incorrect!" });
-    }
     const userId = user._id;
     const secretKey = process.env.SECRET_KEY;
     const token = jwt.sign({ userId }, secretKey);
@@ -230,7 +227,7 @@ const deleteUserHandler = async (req, res) => {
 
 const getUser = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const {userId} = req.params;
     const user = await User.findById( userId )
 
     if (user) {
