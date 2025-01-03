@@ -26,7 +26,7 @@ const App = () => {
   // const [loggedIn, setLoggedIn] = useState(false)
 
   const { fetchData, loading } = useContext(ContextJ);
-  const userId = localStorage.getItem("userId");
+  // const userId = localStorage.getItem("userId");
 
 
   // getUser of  backend
@@ -43,10 +43,8 @@ const App = () => {
   // };
 
   useEffect(() => {
-    if (userId !== null) {
-      fetchData(userId);
-    }
-  }, [loading, userId]);
+      fetchData();
+  }, [loading, fetchData]);
 
   return (
     <>

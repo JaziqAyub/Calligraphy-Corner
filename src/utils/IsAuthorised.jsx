@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-//CUSTOM HOOK
+//CUSTOM HOOK USED IN SECUREPROFILE.JSX
 export const IsAuthorised = () => {
   const navigate = useNavigate();
   // const token = localStorage.getItem("token")

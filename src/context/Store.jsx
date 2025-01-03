@@ -1,13 +1,15 @@
 import { createContext, useState } from "react";
+import api from "../utils/AxiosInstance";
 import App from "../App";
-import axios from "axios";
+// import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+// import axios from "axios";
 
 export const ContextJ = createContext();
 
 const Store = () => {
-  const baseUrl = "http://localhost:4011";
+  // const baseUrl = "http://localhost:4011";
   const navigate = useNavigate();
   // const userId = localStorage.getItem("userId")
   const [store, setStore] = useState({
@@ -21,15 +23,15 @@ const Store = () => {
     // above line cause to prevent button default nehaviour whihc is submititing the form
     try {
       setStore((prev) => ({ ...prev, loading: true }));
-      const url = `${baseUrl}/user/login`;
-      const response = await axios.post(url, formData);
+      const response = await api.post(`/user/login`, formData) //for cookies
       console.log(response);
       if (response.data.message === "Logged in successfully!") {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("userId", response.data.userId);
+        // localStorage.setItem("token", response.data.token);
+        // localStorage.setItem("userId", response.data.userId);
         toast.success(response.data.message);
+        
         setTimeout(() => {
-          navigate("/");
+          navigate("/user/Secureprofile");
         }, 3000);
       } else if (response.data.message === "All credentials Required!") {
         toast.success(response.data.message);
@@ -49,11 +51,10 @@ const Store = () => {
   };
 
   // getUser of  backend
-  const fetchData = async (userId) => {
-    if (!userId) return;
+  const fetchData = async () => { 
+    // if (!userId) return;
     try {
-      const url = `${baseUrl}/getUser/${userId}`;
-      const response = await axios.get(url);
+      const response = await api.get("/getUser");
       console.log(response);
       setStore((prev) => ({
         ...prev,
@@ -69,8 +70,7 @@ const Store = () => {
     e.preventDefault();
     // above line cause to prevent button default nehaviour whihc is submititing the form
     try {
-      const url = `${baseUrl}/user/register`;
-      const response = await axios.post(url, formData);
+      const response = await api.post(`/user/register`, formData);
       if (response.data.message === "User created succesfully!") {
         toast.success(response.data.message);
         setTimeout(() => {
@@ -93,9 +93,9 @@ const Store = () => {
   //reset
   const handleChangePass = async (e, userId, formData) => {
     e.preventDefault();
-    const url = `${baseUrl}/user/password/reset/${userId}`;
+    const url = `/user/password/reset/${userId}`;
     try {
-      const res = await axios.put(url, formData);
+      const res = await api.put(url, formData);
       toast.success(res.data.message);
       console.log(res);
     } catch (error) {
@@ -108,8 +108,7 @@ const Store = () => {
   const handleForgotPass = async (e, formData) => {
     e.preventDefault();
     try {
-      const url = `${baseUrl}/user/forgotPass`;
-      const res = await axios.post(url, formData);
+      const res = await api.post(`/user/forgotPass`, formData);
       toast.success(res.data.message);
       console.log(res);
     } catch (error) {
@@ -122,8 +121,7 @@ const Store = () => {
   const handleDeleteUser = async (e, password, userId) => {
     e.preventDefault();
     try {
-      const url = `${baseUrl}/user/delete/${userId}`;
-      const res = await axios.post(url, {password : password});
+      const res = await api.post(`/user/delete`, {password : password});
       toast.success(res.data.message);
       localStorage.clear();
       toast.success(res.data.message);
