@@ -67,10 +67,20 @@ const loginHandler = async (req, res) => {
     const secretKey = process.env.SECRET_KEY;
     const token = jwt.sign({ userId }, secretKey);
 
+    if(token){
+      res.cookie("token", token, {    //saving token in cookies
+        maxAge : 1000*60*60*24*30 ,  //1month
+        httpOnly : true,
+        secure : false,
+        sameSite : "Lax"
+      }) 
+    }
+   
+
     return res.status(200).json({
       message: "Logged in successfully!",
       token: token,
-      userId: userId
+      // userId: userId
     });
  
 
@@ -199,7 +209,7 @@ const resetPassHandler = async (req, res) => {
 const deleteUserHandler = async (req, res) => {
   try {
 
-    const {userId } = req.params
+    const userId  = req.userId //from isauthenticated
     const {password } = req.body
     if (!userId) {
       return res.status(400).json({ message: "no user" })
@@ -227,7 +237,7 @@ const deleteUserHandler = async (req, res) => {
 
 const getUser = async (req, res) => {
   try {
-    const {userId} = req.params;
+    const userId = req.userId;
     const user = await User.findById( userId )
 
     if (user) {

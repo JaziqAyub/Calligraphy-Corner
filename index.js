@@ -5,12 +5,16 @@ const app = express() //instance of express
 const cors = require("cors") 
 const { isAuthorised } = require("./auth/isAuthorised")
 const { isAuthenticated } = require("./auth/isAuthenticated")
+const cookieParser = require("cookie-parser")
 require("dotenv").config() //.ENV
 
 //middleware
 app.use(express.json()) //to read json in thunderclient etc
-app.use(cors()) //fo safety in b/w ports from front end to back end and vice versa
-
+app.use(cors({
+    origin: "http://localhost:3000",//koi bhi port accept
+    credentials : true //acceptcookies
+})) //fo safety in b/w ports from front end to back end and vice versa
+app.use(cookieParser())//for saving userId, otken or etc in cookies
 
 
 
@@ -27,9 +31,9 @@ app.get("/user/isAuth/:token", isAuthorised)
 
 
 //secureRoute
-app.post("/user/delete/:userId", deleteUserHandler) //done
-app.get("/getUser/:userId",  getUser) //done
-app.post("/user/changePassword",  changePasshandler) //done
+app.post("/user/delete", isAuthenticated, deleteUserHandler) //done
+app.get("/getUser", isAuthenticated, getUser) //done
+app.post("/user/changePassword",  isAuthenticated, changePasshandler) 
 
 
 //sellerRoutes

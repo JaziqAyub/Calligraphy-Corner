@@ -5,7 +5,7 @@ require("dotenv").config()
 //MIDDLEWARE
 const isAuthenticated = async (req, res, next) => {
   try {
-    const { token } = req.query;
+    const { token } = req.cookies; 
     const secretKey = process.env.SECRET_KEY
     if (!token){
         return messageHandler(res, 403, "No token detected, access forbidden")
@@ -26,8 +26,8 @@ const isAuthenticated = async (req, res, next) => {
       if (err) {
         return messageHandler(res, 401, "Unautorised");
       } else {
-        const userId = resolve.userId //from the loginHandler jwt which gets save in resolve.
-        req.user = userId
+        // const userId = resolve.userId //from the loginHandler jwt which gets save in resolve.
+        req.userId = resolve.userId
         return next() //means go to the next handler
       }
     });
