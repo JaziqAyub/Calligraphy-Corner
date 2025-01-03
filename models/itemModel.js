@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
   itemTitle: {type : String},
+  itemCreator : {type : mongoose.Schema.Types.ObjectId, ref : "User"},
   description : {type : String},
   category: {
     type: String,
-    enum: ['Big Canvas', 'Small Canvas', 'Birthday Calendar'],
+    enum: ['#Big Canvas', '#Small Canvas', '#Birthday Calendar'],
     required: true,
   },
   itemCost: { type: Number },

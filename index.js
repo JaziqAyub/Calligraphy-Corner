@@ -6,6 +6,7 @@ const cors = require("cors")
 const { isAuthorised } = require("./auth/isAuthorised")
 const { isAuthenticated } = require("./auth/isAuthenticated")
 const cookieParser = require("cookie-parser")
+const { createItem, getAllItems } = require("./controllers/itemController")
 require("dotenv").config() //.ENV
 
 //middleware
@@ -36,7 +37,10 @@ app.get("/getUser", isAuthenticated, getUser) //done
 app.post("/user/changePassword",  isAuthenticated, changePasshandler) 
 
 
-//sellerRoutes
+//itemRoutes
+app.post("/admin/createItem", isAuthenticated, createItem) 
+app.get("/items/all", isAuthenticated, getAllItems) 
+
 
 const PORT = process.env.PORT
  
