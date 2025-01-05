@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
   itemTitle: {type : String},
-  itemCreator : {type : mongoose.Schema.Types.ObjectId, ref : "User"},
+  itemCreator : {type : mongoose.Schema.Types.ObjectId},
   description : {type : String},
   category: {
     type: String,

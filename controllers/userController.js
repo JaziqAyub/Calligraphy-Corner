@@ -12,9 +12,9 @@ const registerHandler = async (req, res) => {
     // const email = req.body.email
     // const password = req.body.password
 
-    const { username, email, password } = req.body
+    const { username, email, password,  } = req.body
 
-    if (!username || !email ||!password ){
+    if (!username || !email ||!password){
      return res.status(400).json({message:"All credentials required"})
     }
       const findUser = await User.findOne({ email })
@@ -22,6 +22,7 @@ const registerHandler = async (req, res) => {
         return res.json({ message: "User already exists." })
       }
             
+
       const hashPass = await bcrypt.hash(password, 10)
       const createUser = await User.create({ username, email, password: hashPass })
       if (createUser) { 
@@ -41,13 +42,10 @@ const registerHandler = async (req, res) => {
 const loginHandler = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     if (!email || !password) {
       return res.status(400).json({ message: "All credentials Required!" });
     }
-
     const user = await User.findOne({ email });
-
     if (!user) {
       return res.status(400).json({ message: "User Not Found!" });
     }
@@ -80,7 +78,7 @@ const loginHandler = async (req, res) => {
     return res.status(200).json({
       message: "Logged in successfully!",
       token: token,
-      userId: userId
+      userId: userId, user
     });
  
 

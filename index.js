@@ -6,7 +6,8 @@ const cors = require("cors")
 const { isAuthorised } = require("./auth/isAuthorised")
 const { isAuthenticated } = require("./auth/isAuthenticated")
 const cookieParser = require("cookie-parser")
-const { createItem, getAllItems } = require("./controllers/itemController")
+const { createItem, getAllItems, getItemById, editItemById, deleteServiceById } = require("./controllers/itemController")
+const { createOrder } = require("./controllers/orderController")
 require("dotenv").config() //.ENV
 
 //middleware
@@ -29,8 +30,6 @@ app.post("/user/login", loginHandler) //done
 app.post("/user/forgotPass", forgotPassHandler) //done
 app.put("/user/password/reset/:userId", resetPassHandler) //done
 app.get("/user/isAuth/:token", isAuthorised) 
-
-
 //secureRoute
 app.post("/user/delete", isAuthenticated, deleteUserHandler) //done
 app.get("/getUser", isAuthenticated, getUser) //done
@@ -40,6 +39,18 @@ app.post("/user/changePassword",  isAuthenticated, changePasshandler)
 //itemRoutes
 app.post("/admin/createItem", isAuthenticated, createItem) 
 app.get("/items/all", isAuthenticated, getAllItems) 
+app.get("/items/item", isAuthenticated, getItemById) 
+app.put("/item/edit", isAuthenticated, editItemById) 
+app.delete("/item/delete", isAuthenticated, deleteServiceById) 
+
+
+
+//orderRoutes
+app.post("/customer/create/order", isAuthenticated, createOrder) 
+
+
+
+
 
 
 const PORT = process.env.PORT
