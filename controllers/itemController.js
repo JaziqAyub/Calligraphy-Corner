@@ -10,7 +10,8 @@ const createItem = async (req, res) => {
     if (userId !== adminUserId) {
       return messageHandler(res, 404, "Only the admin can create items.");
     }
-    const { itemTitle, itemCost, discount, description, category, role } = req.body;
+    const { itemTitle, itemCost, discount, description, category, role } =
+      req.body;
     if (!itemTitle || !itemCost || !discount || !description || !category) {
       return messageHandler(res, 400, "All details of items requireed");
     }
@@ -67,37 +68,40 @@ const getItemById = async (req, res) => {
 const editItemById = async (req, res) => {
   try {
     const { itemId } = req.query;
-    const  userId  = req.userId;
-    const user = await User.findById(userId)
+    const userId = req.userId;
+    const user = await User.findById(userId);
     const item = await Item.findById(itemId);
     if (!item) {
       return messageHandler(res, 404, "Item not found");
     }
-    if (!user){
-      return messageHandler(res, 404, "User not found")
+    if (!user) {
+      return messageHandler(res, 404, "User not found");
     }
-    if(item.itemCreator.toString() === !userId){
-      return messageHandler(res, 403, "You cannot edit the service, unaothorised to edit.")
+    if (item.itemCreator.toString() === !userId) {
+      return messageHandler(
+        res,
+        403,
+        "You cannot edit the service, unaothorised to edit."
+      );
     }
     const { itemTitle, itemCost, description, category, discount } = req.body;
-
 
     if (!itemTitle || !itemCost || !discount || !description || !category) {
       return messageHandler(res, 400, "All details of items requireed");
     }
 
     item.itemTitle = itemTitle;
-    item.itemCost = itemCost
-    item.discount = discount
-    item.description = description
-    item.category = category
-    const updateService = await item.save()
-    if (updateService){
-      return messageHandler(res, 200, "Updated Successfuly")
+    item.itemCost = itemCost;
+    item.discount = discount;
+    item.description = description;
+    item.category = category;
+    const updateService = await item.save();
+    if (updateService) {
+      return messageHandler(res, 200, "Updated Successfuly");
     }
-    // another method which is fast 
+    // another method which is fast
     // const editItem = await Item.findByIdAndUpdate(item, {
-    //   itemTitle, itemCost, description, category 
+    //   itemTitle, itemCost, description, category
     // })
     // const updateService = await Item.findByIdAndUpdate(itemId)
     // if (editItem){
@@ -122,7 +126,10 @@ const deleteServiceById = async (req, res) => {
   }
 };
 
-
-
-
-module.exports = { createItem, getAllItems, getItemById, editItemById, deleteServiceById };
+module.exports = {
+  createItem,
+  getAllItems,
+  getItemById,
+  editItemById,
+  deleteServiceById,
+};

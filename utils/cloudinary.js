@@ -1,8 +1,7 @@
 const { messageHandler } = require("./messageHandler");
 
 const cloudinary = require("cloudinary").v2;
-require("dotenv").config() //.ENV
-
+require("dotenv").config(); //.ENV
 
 //configuration
 cloudinary.config({
@@ -11,17 +10,15 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-const upload = async (imagePath) => {
+const uploadToCloud = async (imagePath) => {
   try {
-    const up = await cloudinary.uploader.upload(imagePath, {
+    const upload = await cloudinary.uploader.upload(imagePath, {
       folder: "CC",
     });
-    if (up) {
-      messageHandler(res, 200, "Upload Succesful");
-    }
+    return upload;
   } catch (error) {
     console.log(error);
   }
 };
 
-module.exports = {upload}
+module.exports = { uploadToCloud };
