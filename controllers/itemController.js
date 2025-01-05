@@ -4,7 +4,7 @@ const { messageHandler } = require("../utils/messageHandler");
 
 const createItem = async (req, res) => {
   try {
-    const adminUserId = "67795845aa8ea8df3b3f7205";
+    const adminUserId = "677a9345b3beec88b16bd96f";
     const userId = req.userId;
     // const user = await User.findById(userId)
     if (userId !== adminUserId) {

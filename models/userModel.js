@@ -15,11 +15,11 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  isActive: { type: Boolean, default: false },
+  // isActive: { type: Boolean, default: false },
   role: {
     type: String,
     enum: ["admin", "customer"],
-    // default: "customer",
+    default: "customer",
   },
   orders: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }],
   //   Items: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],

@@ -7,7 +7,7 @@ const { isAuthorised } = require("./auth/isAuthorised")
 const { isAuthenticated } = require("./auth/isAuthenticated")
 const cookieParser = require("cookie-parser")
 const { createItem, getAllItems, getItemById, editItemById, deleteServiceById } = require("./controllers/itemController")
-const { createOrder } = require("./controllers/orderController")
+const { createOrder, cancelOrder, getAllOrders, getAllOrderById, getOrderById } = require("./controllers/orderController")
 require("dotenv").config() //.ENV
 
 //middleware
@@ -47,6 +47,8 @@ app.delete("/item/delete", isAuthenticated, deleteServiceById)
 
 //orderRoutes
 app.post("/customer/create/order", isAuthenticated, createOrder) 
+app.get("/customer/fetch/order", isAuthenticated, getOrderById) 
+app.put("/customer/cancel/order", isAuthenticated, cancelOrder) 
 
 
 
