@@ -49,6 +49,8 @@ app.delete("/item/delete", isAuthenticated, deleteServiceById)
 app.post("/customer/create/order", isAuthenticated, createOrder) 
 app.get("/customer/fetch/order", isAuthenticated, getOrderById) 
 app.put("/customer/cancel/order", isAuthenticated, cancelOrder) 
+app.get("/customer/fetchAll/orders", isAuthenticated, getAllOrders) 
+
 
 
 
