@@ -4,9 +4,9 @@ const { messageHandler } = require("../utils/messageHandler");
 
 const createItem = async (req, res) => {
   try {
-    const adminUserId = "677a9345b3beec88b16bd96f";
+    const adminUserId = "677c2491b6d0c2f95fdb0211";
     const userId = req.userId;
-    // const user = await User.findById(userId)
+    const user = await User.findById(userId)
     if (userId !== adminUserId) {
       return messageHandler(res, 404, "Only the admin can create items.");
     }
@@ -18,7 +18,7 @@ const createItem = async (req, res) => {
     const newItem = await Item({
       //getting Item from itemModel cause its its schema
       itemTitle,
-      itemCreator: userId,
+      itemCreator: user._id,
       itemCost,
       discount,
       description,
@@ -27,6 +27,8 @@ const createItem = async (req, res) => {
     });
     await newItem.save(); //new because this is instnce of already made Item
     if (newItem) {
+      user.items.push(newItem._id)
+      await user.save()
       return messageHandler(res, 200, "Item created successfuly", newItem);
     }
   } catch (error) {
@@ -55,11 +57,11 @@ const getAllItems = async (req, res) => {
 const getItemById = async (req, res) => {
   try {
     const { itemId } = req.query;
-    const item = await Item.findById(itemId);
+    const item = await Item.findById(itemId)
     if (!item) {
       return messageHandler(res, 404, "Item not found");
     }
-    return messageHandler(res, 200, "Service found", item);
+    return messageHandler(res, 200, "Item found", item);
   } catch (error) {
     console.log(error);
   }
