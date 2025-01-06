@@ -1,0 +1,53 @@
+.main-container {
+  .heading{
+    text-align: center;
+  }
+  background: linear-gradient(135deg, #1c1c1c, #343434);
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  gap: 15px;
+  > div {
+    > button {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 18px;
+      background: rgb(41, 39, 39);
+      color: whitesmoke;
+      padding: 12px;
+      cursor: pointer;
+      &&:hover{
+        background-color: rgb(0, 0, 0);
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  
+  .item{
+    >button{
+      width: 100px;
+      padding: 5px;
+      font-size: 0.95rem;
+      border-radius: 5px;
+      background-color:rgba(111, 48, 48, 0.781);
+      color: white;
+    }
+    >img{
+      
+      width: 250px;
+      height: 250px;
+    }
+  }
+}

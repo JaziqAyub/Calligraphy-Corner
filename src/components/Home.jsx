@@ -1,10 +1,11 @@
 import React, {   useState } from "react";
 import Card from "../sharedComponent/Card";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
 
 const Home = (props) => {
   const shop = " Happy shopping!";
-
+  const navigate = useNavigate()
   const [count, setCount] = useState(0);
   const handleIncrement = ()=>{
           setCount (count=>count+1)
@@ -34,6 +35,11 @@ const Home = (props) => {
     setEnableDarkMode(!enableDarkMode)
   }
 
+  const handleExplore = () => {
+    navigate("/shop")
+  }
+
+
   // const {store} = useContext(ContextJ)
   return (
     <div className={enableDarkMode ? "home-container-dark" : "home-container"}>
@@ -43,10 +49,9 @@ const Home = (props) => {
         <Card happyMessage={props.happy} shop={shop} />
       </div>
       <div className="Increment"> 
-        The value of count is {count}
-        <button onClick={handleIncrement}>Increment</button>
+        <button onClick={handleIncrement}>Increment {count}</button>
         </div>
-      <button className="action-btn">Explore Now</button>
+      <button className="action-btn" onClick={handleExplore}>Explore Now</button>
       <div className="darkmode">
         <button onClick={handleDarkMode}>{enableDarkMode ? "Enable Light Mode" : "Enable Dark Mode"}</button>
       </div>

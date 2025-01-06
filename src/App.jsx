@@ -1,4 +1,4 @@
-import React, {  useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -15,6 +15,8 @@ import NoPageFound from "./components/NoPageFound";
 import { DeleteUser } from "./components/DeleteUser";
 import { SecureProfile } from "./components/SecureProfile";
 import { ContextJ } from "./context/Store";
+import UserProfile from "./components/AdminProfile";
+import Shop from "./components/Shop";
 
 const App = () => {
   const message =
@@ -27,7 +29,6 @@ const App = () => {
 
   const { fetchData, loading } = useContext(ContextJ);
   // const userId = localStorage.getItem("userId");
-
 
   // getUser of  backend
   //   const fetchData = async (userId) => {
@@ -43,7 +44,7 @@ const App = () => {
   // };
 
   useEffect(() => {
-      fetchData();
+    fetchData();
   }, [loading, fetchData]);
 
   return (
@@ -65,6 +66,10 @@ const App = () => {
           {/* secureRoutes  */}
           <Route path="/user/delete/:userId" element={<DeleteUser />} />
           <Route path="/user/secureprofile" element={<SecureProfile />} />
+
+          {/* frontend  */}
+            <Route path = "/admin/profile" element= {<UserProfile/>}/>
+            <Route path = "/shop" element= {<Shop/>}/>
         </Routes>
       </div>
 

@@ -11,6 +11,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { ContextJ } from "../context/Store";
+import { LuUserRound } from "react-icons/lu";
 // import { DeleteUser } from "./DeleteUser";
 
 const Navbar = () => {
@@ -51,6 +52,11 @@ const Navbar = () => {
 
         {showSideNav && (
           <ul className="animate__animated animate__slideInLeft">
+            <li>
+              <Link to="/admin/profile">
+              <LuUserRound /> Admin Profile
+              </Link>
+            </li>
             <li>
               <Link to="/">
                 <FaHome /> Home
@@ -118,6 +124,11 @@ const Navbar = () => {
         <BsThreeDotsVertical />
         {showSideNav && (
           <ul>
+            <li>
+              <Link to="/admin/profile">
+              <LuUserRound /> Admin Profile
+              </Link>
+            </li>
             <li>
               <Link to="/about">
                 <FaInfo /> About

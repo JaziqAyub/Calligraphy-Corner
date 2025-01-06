@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import api from "../utils/AxiosInstance";
 import App from "../App";
 // import axios from "axios";
@@ -15,7 +15,26 @@ const Store = () => {
   const [store, setStore] = useState({
     loading: false,
     username: "",
+    user: {}, //to get whole user
   });
+
+
+  // getUser of  backend
+  const fetchData = useCallback(async () => {
+    // if (!userId) return;
+    try {
+      const response = await api.get("/getUser");
+      console.log(response);
+      setStore((prev) => ({
+        ...prev,
+        username: response.data.payload.username,
+        user : response.data.payload
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
 
   //login
   const handleLogin = async (e, formData) => {
@@ -23,15 +42,14 @@ const Store = () => {
     // above line cause to prevent button default nehaviour whihc is submititing the form
     try {
       setStore((prev) => ({ ...prev, loading: true }));
-      const response = await api.post(`/user/login`, formData) //for cookies
+      const response = await api.post(`/user/login`, formData); //for cookies
       console.log(response);
       if (response.data.message === "Logged in successfully!") {
         // localStorage.setItem("token", response.data.token);
         // localStorage.setItem("userId", response.data.userId);
         toast.success(response.data.message);
-        
         setTimeout(() => {
-          navigate("/user/Secureprofile");
+          navigate("/user/secureprofile");
         }, 3000);
       } else if (response.data.message === "All credentials Required!") {
         toast.success(response.data.message);
@@ -47,21 +65,6 @@ const Store = () => {
       }
     } finally {
       setStore((prev) => ({ ...prev, loading: false }));
-    }
-  };
-
-  // getUser of  backend
-  const fetchData = async () => { 
-    // if (!userId) return;
-    try {
-      const response = await api.get("/getUser");
-      console.log(response);
-      setStore((prev) => ({
-        ...prev,
-        username: response.data.payload.username,
-      }));
-    } catch (error) {
-      console.log(error);
     }
   };
 
@@ -121,7 +124,7 @@ const Store = () => {
   const handleDeleteUser = async (e, password, userId) => {
     e.preventDefault();
     try {
-      const res = await api.post(`/user/delete`, {password : password});
+      const res = await api.post(`/user/delete`, { password: password });
       toast.success(res.data.message);
       localStorage.clear();
       toast.success(res.data.message);
@@ -145,8 +148,9 @@ const Store = () => {
         handleChangePass,
         handleForgotPass,
         handleDeleteUser,
-      }}>
-      <App/>
+      }}
+    >
+      <App />
     </ContextJ.Provider>
   );
 };
