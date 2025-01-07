@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./Register.css";
 // import axios from "axios";
 import { ToastContainer } from "react-toastify";
-import { ContextJ } from "../context/Store";
+import { ContextJ } from "../../context/Store";
 // import { useNavigate } from "react-router-dom";
 
 const Register = () => {

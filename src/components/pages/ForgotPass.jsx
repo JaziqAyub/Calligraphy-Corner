@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./ForgotPass.css";
 // import axios from "axios";
 import {  ToastContainer } from "react-toastify";
-import { ContextJ } from "../context/Store";
+import { ContextJ } from "../../context/Store";
 
 const ForgotPass = () => {
   const [email, setEmail] = useState("");

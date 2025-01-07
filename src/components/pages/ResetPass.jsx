@@ -3,7 +3,7 @@ import "./ResetPass.css";
 // import axios from "axios";
 import { useParams } from "react-router-dom";
 import {  ToastContainer } from "react-toastify";
-import { ContextJ } from "../context/Store";
+import { ContextJ } from "../../context/Store";
 
 const ResetPass = () => {
   // warna hume do hooks banane the alag alag

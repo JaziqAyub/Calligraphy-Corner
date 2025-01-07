@@ -18,7 +18,6 @@ const Store = () => {
     user: {}, //to get whole user
   });
 
-
   // getUser of  backend
   const fetchData = useCallback(async () => {
     // if (!userId) return;
@@ -28,13 +27,12 @@ const Store = () => {
       setStore((prev) => ({
         ...prev,
         username: response.data.payload.username,
-        user : response.data.payload
+        user: response.data.payload,
       }));
     } catch (error) {
       console.log(error);
     }
   }, []);
-
 
   //login
   const handleLogin = async (e, formData) => {
@@ -138,6 +136,25 @@ const Store = () => {
     }
   };
 
+  const createItems = async (formData) => {
+    try {
+      setStore((prev) => ({ ...prev, loading: true }));
+      const res = await api.post("/admin/createItem", formData);
+      if (res.status === 200) {
+        toast.success("Item Created Succesfully");
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.status === 400) {
+        toast.error("All credentials required");
+      } else {
+        toast.error("Server Error");
+      }
+    } finally {
+      setStore((prev) => ({ ...prev, loading: false }));
+    }
+  };
+
   return (
     <ContextJ.Provider
       value={{
@@ -148,6 +165,7 @@ const Store = () => {
         handleChangePass,
         handleForgotPass,
         handleDeleteUser,
+        createItems,
       }}
     >
       <App />

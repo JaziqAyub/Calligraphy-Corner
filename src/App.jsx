@@ -1,22 +1,22 @@
 import React, { useContext, useEffect } from "react";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
+import Navbar from "./components/sharedComponent/Navbar";
+import Home from "./components/pages/Home";
+import Footer from "./components/sharedComponent/Footer";
 import "./global.css";
 import { Route, Routes } from "react-router-dom";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Register from "./components/Register";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Register from "./components/pages/Register";
 // import axios from "axios";
-import Login from "./components/Login";
-import ForgotPass from "./components/ForgotPass";
-import ResetPass from "./components/ResetPass";
-import NoPageFound from "./components/NoPageFound";
-import { DeleteUser } from "./components/DeleteUser";
-import { SecureProfile } from "./components/SecureProfile";
+import Login from "./components/pages/Login";
+import ForgotPass from "./components/pages/ForgotPass";
+import ResetPass from "./components/pages/ResetPass";
+import NoPageFound from "./components/pages/NoPageFound";
+import { DeleteUser } from "./components/pages/DeleteUser";
+import { SecureProfile } from "./components/pages/SecureProfile";
 import { ContextJ } from "./context/Store";
-import UserProfile from "./components/AdminProfile";
-import Shop from "./components/Shop";
+import UserProfile from "./components/pages/AdminProfile";
+import Shop from "./components/pages/Shop";
 
 const App = () => {
   const message =

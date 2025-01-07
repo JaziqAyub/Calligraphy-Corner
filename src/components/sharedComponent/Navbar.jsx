@@ -2,16 +2,16 @@ import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import logo from "./assets/logo.png";
+import logo from "../assets/logo.png";
 import { FaHome, FaInfo } from "react-icons/fa";
 import { TbLogin2 } from "react-icons/tb";
 import { MdCreate, MdDelete, MdOutlineLocalPhone } from "react-icons/md";
-import { IoIosInformationCircleOutline } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { RiLogoutBoxLine } from "react-icons/ri";
-import { ContextJ } from "../context/Store";
+import { ContextJ } from "../../context/Store";
 import { LuUserRound } from "react-icons/lu";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 // import { DeleteUser } from "./DeleteUser";
 
 const Navbar = () => {

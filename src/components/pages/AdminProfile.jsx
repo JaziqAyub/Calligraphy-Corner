@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./AdminProfile.css";
-import { ContextJ } from "../context/Store";
-import CreateItem from "../sharedComponent/CreateItem";
+import { ContextJ } from "../../context/Store";
+import CreateItem from "../molecules/CreateItem";
 
 const UserProfile = () => {
   const { user } = useContext(ContextJ);
@@ -17,7 +17,7 @@ const UserProfile = () => {
 
 
     <div className="main-container">
-     {showForm ? <CreateItem/> : <div className="heading">
+     {showForm ? <CreateItem setShowForm={setShowForm}/> : <div className="heading">
       This Profile belongs to {user.username} who is the {user.role} of this website and you've created {user.items && user.items.length}{" "} {user.items && user.items.length === 1 ? "item" : "items"}.
       </div>
 }

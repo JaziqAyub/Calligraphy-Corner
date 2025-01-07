@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { IsAuthorised } from '../utils/IsAuthorised'
+import { IsAuthorised } from '../../utils/IsAuthorised'
 
 
 export const SecureProfile = () => {

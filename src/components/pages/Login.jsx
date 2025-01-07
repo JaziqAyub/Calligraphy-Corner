@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link} from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./Login.css"
-import { ContextJ } from "../context/Store";
+import { ContextJ } from "../../context/Store";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
