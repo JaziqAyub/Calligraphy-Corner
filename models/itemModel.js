@@ -5,9 +5,7 @@ const itemSchema = new mongoose.Schema({
   itemCreator : {type : mongoose.Schema.Types.ObjectId, ref : "User"},
   description : {type : String},
   category: {
-    type: String,
-    enum: ['#Big Canvas', '#Small Canvas', '#Birthday Calendar'],
-    required: true,
+    type: String
   },
   itemCost: { type: Number },
   picUrls :[{ type: String }],

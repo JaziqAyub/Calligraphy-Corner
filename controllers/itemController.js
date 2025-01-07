@@ -12,7 +12,7 @@ const createItem = async (req, res) => {
     }
     const { itemTitle, itemCost, discount, description, category, role } =
       req.body;
-    if (!itemTitle || !itemCost || !discount || !description || !category) {
+    if (!itemTitle || !itemCost || !description ) {
       return messageHandler(res, 400, "All details of items requireed");
     }
     const newItem = await Item({
