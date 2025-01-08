@@ -1,0 +1,107 @@
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  
+    label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      padding: 0.8rem 2rem;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s, border-color 0.3s;
+  
+      &:hover {
+        background-color: #e6f7ff;
+        border-color: #1890ff;
+      }
+  
+      &:active {
+        background-color: #d9f0ff;
+      }
+    }
+  
+    input[type="file"] {
+      display: none;
+    }
+  
+    .preview-text {
+      margin: 1.5rem 0;
+      font-size: 1rem;
+      color: #666666;
+      font-style: italic;
+      text-align: center;
+    }
+  
+    .buttons-container {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      width: 100%;
+  
+      button {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ffffff;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+  
+        &.submit-btn {
+          background-color: #1890ff;
+  
+          &:hover {
+            background-color: #096dd9;
+          }
+  
+          &:active {
+            background-color: #0050b3;
+          }
+        }
+  
+        &.back-btn {
+          background-color: #cccccc;
+  
+          &:hover {
+            background-color: #b3b3b3;
+          }
+  
+          &:active {
+            background-color: #999999;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .upload-container {
+      padding: 1.5rem;
+    }
+  
+    label,
+    .buttons-container button {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.2rem;
+    }
+  
+    .buttons-container {
+      flex-direction: column;
+    }
+  }
+  

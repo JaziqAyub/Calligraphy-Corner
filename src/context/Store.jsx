@@ -141,15 +141,39 @@ const Store = () => {
       setStore((prev) => ({ ...prev, loading: true }));
       const res = await api.post("/admin/createItem", formData);
       if (res.status === 200) {
-        toast.success("Item Created Succesfully");
+        // toast.success("Item Created Succesfully");
+        sessionStorage.setItem("itemId", res.data.payload._id);
+        return true;
       }
     } catch (error) {
       console.log(error);
-      if (error.status === 400) {
-        toast.error("All credentials required");
-      } else {
-        toast.error("Server Error");
+      return false;
+      // if (error.status === 400) {
+      //   toast.error("All credentials required");
+      // } else {
+      //   toast.error("Server Error");
+      //      }
+    } finally {
+      setStore((prev) => ({ ...prev, loading: false }));
+    }
+  };
+
+  const UploadItemPicture = async (formData, itemId) => {
+    try {
+      setStore((prev) => ({ ...prev, loading: true }));
+      const res = await api.post(
+        `/admin/upload/Itempicture?itemId=${itemId}`,
+        formData
+      );
+      if (res.status === 200) {
+        // toast.success("Upload success");
+        return true
       }
+      toast.error("Submit failed");
+      // navigate("/shop");
+    } catch (error) {
+      console.error(error);
+      return false
     } finally {
       setStore((prev) => ({ ...prev, loading: false }));
     }
@@ -166,6 +190,7 @@ const Store = () => {
         handleForgotPass,
         handleDeleteUser,
         createItems,
+        UploadItemPicture,
       }}
     >
       <App />
