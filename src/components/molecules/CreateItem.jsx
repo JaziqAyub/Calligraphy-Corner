@@ -37,14 +37,14 @@ const CreateItem = ({ setShowForm , showUploadForm, setShowUploadForm}) => {
               placeholder="Item Title"
               name="itemTitle"
               onChange={handleChange}
-            />
-            <input
-              className="description"
-              type="text"
-              placeholder="Description"
-              name="description"
-              onChange={handleChange}
-            />
+            /> 
+          <textarea
+  className="description"
+  placeholder="Description"
+  name="description"
+  onChange={handleChange}
+/>
+
             <input
               type="number"
               placeholder="Item Cost"

@@ -12,9 +12,21 @@
       color: #333;
       margin-bottom: 20px;
     }
-    .description{
-        height: 10vh;
+    .description {
+      height: 100px; /* Height for multi-line input */
+      width: 82%; /* Make it as wide as other inputs */
+      padding: 10px; /* Add padding for better readability */
+      border-radius: 7px; /* Optional: Rounded corners */
+      border: 1px solid #ccc; /* Optional: Border style */
+      font-size: 1rem;
+      /* Optional: Text size */
+      font-family: 'Arial', sans-serif;
+      
+      &::placeholder {
+        color: #aaa;
+      } 
     }
+    
     form {
       display: flex;
       flex-direction: column;

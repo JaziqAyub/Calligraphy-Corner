@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //CUSTOM HOOK USED IN SECUREPROFILE.JSX
 export const IsAuthorised = () => {
@@ -19,16 +19,16 @@ export const IsAuthorised = () => {
   // }
 
   // same method thru get and sending token through params
-    const verifyToken = async (token) => {
+    const verifyToken = useCallback( async (token) => {
     const url = `http://localhost:4011/user/isAuth/${token}`;
     const res = await axios.get(url, token);
-    if (res.status === 200 && res.data.messsage === "Token verified") {
+    if (res.status === 200 && res.data.message === "Token verified") {
       navigate("/user/secureprofile");
       console.log(res)
     } else {
       navigate("/user/login");
     }
-  };
+    },[navigate])
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -36,6 +36,6 @@ export const IsAuthorised = () => {
     } else {
       verifyToken(token);
     }
-  }, [navigate]);
+  }, [navigate, verifyToken]);
 };
 export default IsAuthorised;
