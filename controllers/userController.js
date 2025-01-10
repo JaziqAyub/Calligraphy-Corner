@@ -304,8 +304,8 @@ const uploadItemPic = async (req, res) => {
     }
 
     if (user.role == "admin") {
-      const imagePath = req.file.path;
-      const upload = await uploadToCloud(imagePath);
+      const {image} = req.body;
+      const upload = await uploadToCloud(image);
 
       item.picUrls = upload.secure_url;
       await item.save();
