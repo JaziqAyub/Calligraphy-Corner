@@ -16,6 +16,7 @@ const Store = () => {
     loading: false,
     username: "",
     user: {}, //to get whole user
+    item: {}
   });
 
   // getUser of  backend
@@ -179,6 +180,64 @@ const Store = () => {
     }
   };
 
+  const deleteItemById = async (itemId) => {
+    try {
+      setStore((prev) => ({ ...prev, loading: true }));
+      const res = await api.delete(`/item/delete/${itemId}`)
+      if (res) {
+        toast.success("Item deleted successfuly!")
+      } else {
+        toast.error("Some error!")
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("Server error!")
+    } finally {
+      setStore((prev) => ({ ...prev, loading: false }));
+    }
+  }
+
+
+
+const editItemById = async (itemId, formData) => {
+  try {
+    setStore((prev) => ({ ...prev, loading: true }));
+
+    const res = await api.put(`/item/edit?itemId=${itemId}`, formData);
+    if (res.status === 200) {
+      toast.success(res.data.message);
+      return true;
+    }
+  } catch (error) {
+    console.log(error);
+    if (error.response && (error.response.status === 400 || 404 || 500)) {
+      toast.error(error.response.data.message || "server Error");
+    } else {
+      toast.error("An unexpected error occurred!");
+    }
+    return false;
+  } finally {
+    setStore((prev) => ({ ...prev, loading: false }));
+  }
+};
+
+
+const getItemById = async (itemId) => {
+try {
+  const res = await api.get(`/items/item?itemId=${itemId}`)
+  if (res.status === 200 ) {
+    setStore((prev) => ({ ...prev, item: res.data.payload }));
+  }
+} catch (error) {
+  console.log(error)
+  if (error.response && (error.response.status === 400 || 404 || 500)) {
+    toast.error(error.response.data.message || "server Error");
+  } else {
+    toast.error("An unexpected error occurred!");
+  }
+}
+}
+
   return (
     <ContextJ.Provider
       value={{
@@ -191,6 +250,9 @@ const Store = () => {
         handleDeleteUser,
         createItems,
         UploadItemPicture,
+        deleteItemById,
+        editItemById,
+        getItemById
       }}
     >
       <App />

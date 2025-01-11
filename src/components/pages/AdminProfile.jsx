@@ -7,15 +7,16 @@ const UserProfile = () => {
   const { user } = useContext(ContextJ);
   console.log(user);
   const [showForm, setShowForm] = useState(false);
-  const [showUploadForm, setShowUploadForm] = useState(false);
+  // const [showUploadForm, setShowUploadForm] = useState(false);
   return (
     <>
+
       <div className="main-container">
         {showForm ? (
           <CreateItem
             setShowForm={setShowForm}
-            showUploadForm={showUploadForm}
-            setShowUploadForm={setShowUploadForm}
+            // showUploadForm={showUploadForm}
+            // setShowUploadForm={setShowUploadForm}
           />
         ) : (
           <div className="heading">
