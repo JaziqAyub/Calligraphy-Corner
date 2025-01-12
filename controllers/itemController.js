@@ -57,13 +57,18 @@ const getAllItems = async (req, res) => {
 const getItemById = async (req, res) => {
   try {
     const { itemId } = req.query;
-    const item = await Item.findById(itemId)
+    const item = await Item.findById(itemId);
     if (!item) {
       return messageHandler(res, 404, "Item not found");
     }
     return messageHandler(res, 200, "Item found", item);
   } catch (error) {
     console.log(error);
+    if (error.response && (error.response.status === 400 || 404 || 500)) {
+      toast.error(error.response.data.message || "server Error");
+    } else {
+      toast.error("An unexpected error occurred!");
+    }
   }
 };
 
@@ -115,9 +120,9 @@ const editItemById = async (req, res) => {
   }
 };
 
-const deleteServiceById = async (req, res) => {
+const deleteItemById = async (req, res) => {
   try {
-    const { itemId } = req.query;
+    const { itemId } = req.params;
     const item = await Item.findByIdAndDelete(itemId);
     if (!item) {
       return messageHandler(res, 404, "Item not found");
@@ -133,5 +138,5 @@ module.exports = {
   getAllItems,
   getItemById,
   editItemById,
-  deleteServiceById,
+  deleteItemById,
 };

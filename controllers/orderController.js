@@ -15,7 +15,7 @@ const createOrder = async (req, res) => {
     if (!item || item.isActive === false) {
       messageHandler(res, 404, "Item unavailable.");
     }
-    if (user.role === "admin" || !user) {
+    if (user.role === "aDmin" || !user) {
       return messageHandler(
         res,
         404,

@@ -23,6 +23,7 @@ const {
   getItemById,
   editItemById,
   deleteServiceById,
+  deleteItemById,
 } = require("./controllers/itemController");
 const {
   createOrder,
@@ -65,13 +66,13 @@ app.post("/user/changePassword", isAuthenticated, changePasshandler);
 
 
 //itemRoutes
-app.post("/admin/createItem", isAuthenticated, createItem);
+app.post("/admin/createItem", isAuthenticated, createItem); //done
 app.get("/items/all", isAuthenticated, getAllItems);
 app.get("/items/item", isAuthenticated, getItemById);
-app.put("/item/edit", isAuthenticated, editItemById);
-app.delete("/item/delete", isAuthenticated, deleteServiceById);
+app.put("/item/edit", isAuthenticated, editItemById); 
+app.delete("/item/delete/:itemId", isAuthenticated, deleteItemById);//done
 //cloudinary
-app.post("/admin/upload/Itempicture", multmid, isAuthenticated, uploadItemPic);
+app.post("/admin/upload/Itempicture", multmid, isAuthenticated, uploadItemPic); //done
 
 
 //orderRoutes
