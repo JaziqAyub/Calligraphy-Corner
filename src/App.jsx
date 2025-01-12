@@ -17,6 +17,8 @@ import { SecureProfile } from "./components/pages/SecureProfile";
 import { ContextJ } from "./context/Store";
 import UserProfile from "./components/pages/AdminProfile";
 import Shop from "./components/pages/Shop";
+import UploadItemPic from "./components/molecules/UploadItemPic";
+import OrderPayment from "./components/pages/OrderPayment";
 
 const App = () => {
   const message =
@@ -70,6 +72,9 @@ const App = () => {
           {/* frontend  */}
             <Route path = "/admin/profile" element= {<UserProfile/>}/>
             <Route path = "/shop" element= {<Shop/>}/>
+            <Route path = "/admin/upload" element= {<UploadItemPic/>}/>
+            {/* paymentRoute */}
+            <Route path = "/order/payment/:orderId" element= {<OrderPayment/>}/>
         </Routes>
       </div>
 

@@ -1,27 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../molecules/CreateItem.scss";
+import "./EditForm.scss";
 import { ContextJ } from "../../context/Store";
 import { ImForward } from "react-icons/im";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
-const EditForm = ({ setShowForm }) => {
+const EditForm = ({ setEditForm }) => {
   const { editItemById, getItemById, item } = useContext(ContextJ);
+  const [formData, setFormData] = useState(item);
+  const itemId = sessionStorage.getItem("itemId")
 
-  const [formData, setFormData] = useState(item)
- const itemId = "67828492ad1b0e683d2b9b4d"
+  const navigate = useNavigate();
+  useEffect(() => {
+    getItemById(itemId);
+  }, [getItemById, itemId]);
 
- useEffect(()=>{
-
-  getItemById(itemId)
-
-} , [getItemById , itemId])
-
-
-
-
-const handleChange = (e) => {
-  const { name, value } = e.target;
-  setFormData((prevInput) => ({ ...prevInput, [name]: value }));
-};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevInput) => ({ ...prevInput, [name]: value }));
+  };
 
   return (
     <>
@@ -70,43 +67,36 @@ const handleChange = (e) => {
             const item = await editItemById(itemId, formData);
 
             if (item) {
-              // setShowForm(false);
-              console.log("success")
-              
+              setEditForm(false);
+              toast.success("Item Updated Succesfully!");
             }
           }}
         >
           Save
         </button>
-       
+
         <button
-                  className="create"
-                  onClick={async() => {
-                    const item =  await editItemById(itemId , formData);
+          className="create"
+          onClick={async () => {
+            const item = await editItemById(itemId, formData);
 
-                 
-                    if(item){
-                      setFormData({
-                        itemTitle: "",
-                        description : "",
-                        itemCost: "",
-                        discount: "",
-                        category: "",
-                      });
-                      
-                      // setShowUploadForm(true)
-                    }
-                      
-                  }}
-                >
-                  Edit and continue <ImForward style={{ fontSize: "22px"  , marginLeft : "10px"}} />
-                </button>
+            if (item) {
+              setFormData({
+                itemTitle: "",
+                description: "",
+                itemCost: "",
+                discount: "",
+                category: "",
+              });
 
-
-
-       
+              navigate("/admin/upload");
+            }
+          }}
+        >
+          Edit and continue{" "}
+          <ImForward style={{ fontSize: "12px", marginLeft: "10px" }} />
+        </button>
       </div>
-      
     </>
   );
 };

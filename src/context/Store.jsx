@@ -16,9 +16,8 @@ const Store = () => {
     loading: false,
     username: "",
     user: {}, //to get whole user
-    item: {}
+    item: {},
   });
-
   // getUser of  backend
   const fetchData = useCallback(async () => {
     // if (!userId) return;
@@ -137,6 +136,7 @@ const Store = () => {
     }
   };
 
+  //item
   const createItems = async (formData) => {
     try {
       setStore((prev) => ({ ...prev, loading: true }));
@@ -159,6 +159,7 @@ const Store = () => {
     }
   };
 
+  //item
   const UploadItemPicture = async (formData, itemId) => {
     try {
       setStore((prev) => ({ ...prev, loading: true }));
@@ -168,76 +169,108 @@ const Store = () => {
       );
       if (res.status === 200) {
         // toast.success("Upload success");
-        return true
+        return true;
       }
       toast.error("Submit failed");
       // navigate("/shop");
     } catch (error) {
       console.error(error);
-      return false
+      return false;
     } finally {
       setStore((prev) => ({ ...prev, loading: false }));
     }
   };
 
+  //item
   const deleteItemById = async (itemId) => {
     try {
       setStore((prev) => ({ ...prev, loading: true }));
-      const res = await api.delete(`/item/delete/${itemId}`)
+      const res = await api.delete(`/item/delete/${itemId}`);
       if (res) {
-        toast.success("Item deleted successfuly!")
+        toast.success("Item deleted successfuly!");
       } else {
-        toast.error("Some error!")
+        toast.error("Some error!");
       }
     } catch (error) {
-      console.log(error)
-      toast.error("Server error!")
+      console.log(error);
+      toast.error("Server error!");
     } finally {
       setStore((prev) => ({ ...prev, loading: false }));
     }
-  }
+  };
 
+  //item
+  const editItemById = async (itemId, formData) => {
+    try {
+      setStore((prev) => ({ ...prev, loading: true }));
 
-
-const editItemById = async (itemId, formData) => {
-  try {
-    setStore((prev) => ({ ...prev, loading: true }));
-
-    const res = await api.put(`/item/edit?itemId=${itemId}`, formData);
-    if (res.status === 200) {
-      toast.success(res.data.message);
-      return true;
+      const res = await api.put(`/item/edit?itemId=${itemId}`, formData);
+      if (res.status === 200) {
+        toast.success(res.data.message);
+        return true;
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.response && (error.response.status === 400 || 404 || 500)) {
+        toast.error(error.response.data.message || "server Error");
+      } else {
+        toast.error("An unexpected error occurred!");
+      }
+      return false;
+    } finally {
+      setStore((prev) => ({ ...prev, loading: false }));
     }
-  } catch (error) {
-    console.log(error);
-    if (error.response && (error.response.status === 400 || 404 || 500)) {
-      toast.error(error.response.data.message || "server Error");
-    } else {
-      toast.error("An unexpected error occurred!");
+  };
+
+  //item
+  const getItemById = useCallback(async (itemId) => {
+    try {
+      const res = await api.get(`/items/item?itemId=${itemId}`);
+      if (res.status === 200) {
+        setStore((prev) => ({ ...prev, item: res.data.payload }));
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.response && (error.response.status === 400 || 404 || 500)) {
+        toast.error(error.response.data.message || "server Error");
+      } else {
+        toast.error("An unexpected error occurred!");
+      }
     }
-    return false;
-  } finally {
-    setStore((prev) => ({ ...prev, loading: false }));
-  }
-};
+  }, []);
 
+  //order
+  const createOrder = async (itemId, formData) => {
+    try {
+      const res = await api.post(`/customer/create/order?itemId=${itemId}`, formData);
+      if (res) {
+        toast.success("Order Created Successfuly, please initiate the payment");
+        const orderId = res.data.payload._id
+        navigate(`/order/payment/${orderId}`)
+      } else {
+        toast.error("Order creation failed!!!");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Order server error!");
+    }
+  };
 
-const getItemById = async (itemId) => {
-try {
-  const res = await api.get(`/items/item?itemId=${itemId}`)
-  if (res.status === 200 ) {
-    setStore((prev) => ({ ...prev, item: res.data.payload }));
-  }
-} catch (error) {
-  console.log(error)
-  if (error.response && (error.response.status === 400 || 404 || 500)) {
-    toast.error(error.response.data.message || "server Error");
-  } else {
-    toast.error("An unexpected error occurred!");
-  }
-}
-}
+  const cancelOrder = async (orderId) => {
+    try {
+      const res = await api.put(`/customer/cancel/order?orderId=${orderId}`)
+      console.log(res)
 
+      if (res.status === 200) {
+        toast.success(res.data.message || "Order Cancelled")
+      } else {
+        toast.error("Order cancellation failed")
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("Order cancellation server erro")
+    }
+  }
   return (
     <ContextJ.Provider
       value={{
@@ -252,9 +285,12 @@ try {
         UploadItemPicture,
         deleteItemById,
         editItemById,
-        getItemById
+        getItemById,
+        createOrder,
+        cancelOrder
       }}
     >
+
       <App />
     </ContextJ.Provider>
   );
