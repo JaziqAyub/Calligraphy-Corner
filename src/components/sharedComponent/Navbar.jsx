@@ -6,12 +6,13 @@ import logo from "../../assets/logo.png";
 import { FaHome, FaInfo } from "react-icons/fa";
 import { TbLogin2 } from "react-icons/tb";
 import { MdCreate, MdDelete, MdOutlineLocalPhone } from "react-icons/md";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { ContextJ } from "../../context/Store";
 import { LuUserRound } from "react-icons/lu";
 import { IoIosInformationCircleOutline } from "react-icons/io";
+import { IoCartOutline } from "react-icons/io5";
+import { FiUser } from "react-icons/fi";
 // import { DeleteUser } from "./DeleteUser";
 
 const Navbar = () => {
@@ -32,18 +33,22 @@ const Navbar = () => {
     <div className="navbar">
       <div className="logowhole">
         <Link to="/">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" Call/> 
         </Link>
       </div>
+      <span> Calligraphy Corner</span>
       <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/user/register">Register</Link>
+          <Link to="/shop">Shop</Link>
         </li>
         <li>
-          <Link to="/user/login">Login</Link>
+          <Link to="/about">About us</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact us</Link>
         </li>
       </ul>
 
@@ -103,12 +108,12 @@ const Navbar = () => {
           </ul>
         )}
       </div>
-
       <div className="logo">
         <Link to="/">
           <img src={logo} alt="Logo" />
-        </Link>
+        </Link> 
       </div>
+     
 
       <div className="login-container">
         {username ? (
@@ -121,12 +126,22 @@ const Navbar = () => {
       </div>
 
       <div onClick={handleNav} className="dropdown">
-        <BsThreeDotsVertical />
+      <FiUser />
         {showSideNav && (
           <ul>
             <li>
               <Link to="/admin/profile">
               <LuUserRound /> Admin Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="/user/login">
+                <TbLogin2 /> Login
+              </Link>
+            </li>
+            <li>
+              <Link to="/user/register">
+                <MdCreate /> Register
               </Link>
             </li>
             <li>
@@ -161,6 +176,8 @@ const Navbar = () => {
             </li>
           </ul>
         )}
+        <span className="cart"><IoCartOutline />
+        </span>
       </div>
     </div>
   );

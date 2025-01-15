@@ -262,7 +262,7 @@ const Store = () => {
       console.log(res)
 
       if (res.status === 200) {
-        toast.success(res.data.message || "Order Cancelled")
+        toast.success(res.data.message || "Order Cancelled ")
       } else {
         toast.error("Order cancellation failed")
       }

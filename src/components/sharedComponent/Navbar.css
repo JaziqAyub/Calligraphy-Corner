@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@600&display=swap');
 .navbar {
-  background: linear-gradient(135deg, #1c1c1c, #343434);
+  background-color: #3E5B52; /*midnight green*/
   padding: 1rem 2rem;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); */
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  >span{
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 1.25rem;
+    color: white;
+    margin-left: 15px;
+  }
 }
 
 .navbar ul {
@@ -16,6 +26,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  margin-left: 300px;
   padding: 0;
   gap: 2rem;
   flex: 1;

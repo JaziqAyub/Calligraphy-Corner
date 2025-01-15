@@ -42,6 +42,10 @@ const Home = (props) => {
 
   // const {store} = useContext(ContextJ)
   return (
+  <>
+  <div className="heroSection">
+
+  </div>
     <div className={enableDarkMode ? "home-container-dark" : "home-container"}>
       <h1> {props.message} {props.user}</h1>
       {/* <h1> {props.message} {store.username}</h1> */}
@@ -56,6 +60,7 @@ const Home = (props) => {
         <button onClick={handleDarkMode}>{enableDarkMode ? "Enable Light Mode" : "Enable Dark Mode"}</button>
       </div>
     </div>
+    </>
   );
 };
 
