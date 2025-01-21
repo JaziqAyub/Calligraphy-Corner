@@ -18,7 +18,7 @@ import { FiUser } from "react-icons/fi";
 const Navbar = () => {
   // const username = props.user;
   // const {username, loading} = useContext(ContextJ)
-  const {username} = useContext(ContextJ)
+  const { username } = useContext(ContextJ);
 
   const [showSideNav, setShowSideNav] = useState(false);
 
@@ -33,10 +33,12 @@ const Navbar = () => {
     <div className="navbar">
       <div className="logowhole">
         <Link to="/">
-          <img src={logo} alt="Logo" Call/> 
+          <img src={logo} alt="Logo" Call />
         </Link>
       </div>
-      <span> Calligraphy Corner</span>
+      <span>
+        Calligraphy Corner <span>.</span>
+      </span>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -59,7 +61,7 @@ const Navbar = () => {
           <ul className="animate__animated animate__slideInLeft">
             <li>
               <Link to="/admin/profile">
-              <LuUserRound /> Admin Profile
+                <LuUserRound /> Admin Profile
               </Link>
             </li>
             <li>
@@ -111,9 +113,8 @@ const Navbar = () => {
       <div className="logo">
         <Link to="/">
           <img src={logo} alt="Logo" />
-        </Link> 
+        </Link>
       </div>
-     
 
       <div className="login-container">
         {username ? (
@@ -126,12 +127,12 @@ const Navbar = () => {
       </div>
 
       <div onClick={handleNav} className="dropdown">
-      <FiUser />
+        <FiUser />
         {showSideNav && (
           <ul>
             <li>
               <Link to="/admin/profile">
-              <LuUserRound /> Admin Profile
+                <LuUserRound /> Admin Profile
               </Link>
             </li>
             <li>
@@ -176,7 +177,8 @@ const Navbar = () => {
             </li>
           </ul>
         )}
-        <span className="cart"><IoCartOutline />
+        <span className="cart">
+          <IoCartOutline />
         </span>
       </div>
     </div>

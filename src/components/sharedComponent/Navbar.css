@@ -12,13 +12,18 @@
   >span{
     font-family: "Inter", serif;
     font-optical-sizing: auto;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.9px;
+    line-height: 32px;
+    font-size: 2rem;
     color: white;
-    margin-left: 15px;
+    margin-left: 25px;
+    >span{
+      color: rgba(255, 255, 255, 0.496);
+    }
   }
 }
+
 
 .navbar ul {
   list-style-type: none;
@@ -26,7 +31,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-left: 300px;
+  margin-left: 15rem;
   padding: 0;
   gap: 2rem;
   flex: 1;
@@ -101,9 +106,15 @@
 }
 
 .logowhole > a > img {
-  width: 100%;
-  height: 45px;
-  /* object-fit: contain; */
+  min-width: 100%;
+  height: 60px;
+  /* margin-left: 0px; */
+  object-fit: contain;
+}
+
+.logowhole{
+  margin-left: 70px;
+  /* border: 2px solid red; */
 }
 
 .dropdown  {
@@ -133,6 +144,11 @@
 }  
 
 @media screen and (max-width: 668px) {
+  .navbar{
+    span{
+      display: none;
+    }
+  }
   .navbar ul {
     list-style-type: none;
     display: none;
@@ -211,3 +227,4 @@
     display: none;
   }
 }
+
