@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Card from "../sharedComponent/Card";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import HeroImg from "../../assets/HeroImg.jpg";
+import HeroImg from "../../assets/HeroImg.png";
+import Component2 from "../../assets/Component2.png";
 
 
 const Home = (props) => {
@@ -57,8 +58,12 @@ const Home = (props) => {
           <button className="hero-btn2" onClick={handleExplore}>
             Explore 
           </button>
+
           <div className="imgHero">
-          <img src={HeroImg} alt="Calligraphy" className="heroImage" width={200}/>
+          <img src={HeroImg} alt="Calligraphy" className="heroImage" />
+          </div>
+          <div className="imgHero2">
+          <img src={Component2} alt="Calligraphy" className="heroImage" />
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ html, body {
 .heroSection{
   /* border: 1px solid red; */
   width: 99vw;
-  min-height: 70vh;
+  height: 79vh;
   margin: 0;
   background-color: #3E5B52; /*midnight green*/
 }
@@ -68,7 +68,28 @@ line-height: 27px;
   }
 }
 
+.imgHero{
+  /* border: 2px solid red; */
+  width: 200px;
+  position: relative;
+  left: 620px;
+  bottom: 350px;
+  z-index: 10;
+  >img{
+  width:700px;
+  }
+}
+.imgHero2{
+  /* border: 2px solid red; */
+  width: 100px;
+  position: relative;
+  left: 1100px;
+  bottom: 850px;
+  >img{
+  width:300px;
 
+  }
+}
 
 
 
