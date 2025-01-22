@@ -1,61 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@600&display=swap');
-html, body {
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@600&display=swap");
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.heroSection{
+.heroSection {
   /* border: 1px solid red; */
   width: 99vw;
-  height: 79vh;
+  height: 70vh;
   margin: 0;
-  background-color: #3E5B52; /*midnight green*/
+  background-color: #3e5b52; /*midnight green*/
 }
-.herohead1{
+.herohead1 {
   /* border: 5px solid red; */
   margin-left: 100px;
   /* margin-top: 100px; */
   padding-top: 70px;
   max-width: 35vw;
- >p{
+  > p {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 4rem;
+    color: white;
+  }
+}
+
+.herosub1 {
+  color: rgba(255, 255, 255, 0.545);
   font-family: "Inter", serif;
   font-optical-sizing: auto;
-  font-weight: 600;
-  font-size: 4rem;
-  color: white;
- }
+  font-weight: 300;
+  word-spacing: 2px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  line-height: 27px;
 }
-
-.herosub1{
-
-color: rgba(255, 255, 255, 0.545);
-font-family: "Inter", serif;
-font-optical-sizing: auto;
-font-weight: 300;
-word-spacing: 2px;
-margin-top: 20px;
-margin-bottom: 20px;
-line-height: 27px;
-}
-.hero-btn1{
-  background-color: #F9BF29;
+.hero-btn1 {
+  background-color: #f9bf29;
   color: #000000;
   font-size: 1.1rem;
   padding: 12px 30px;
-  border: 1px solid #F9BF29;
+  border: 1px solid #f9bf29;
   border-radius: 30px;
   cursor: pointer;
   font-family: "Inter", serif;
   font-weight: 600;
-  margin-right: 14px;  
-  &:hover{
+  margin-right: 14px;
+  &:hover {
     border: 1px solid white;
-
   }
 }
-.hero-btn2{
-  background-color:transparent;
+.hero-btn2 {
+  background-color: transparent;
   color: #fff;
   font-size: 1.1rem;
   padding: 12px 20px;
@@ -63,35 +62,131 @@ line-height: 27px;
   border-radius: 30px;
   cursor: pointer;
   font-family: "Inter", serif;
-  &:hover{
+  &:hover {
     border: 0.1px solid white;
   }
 }
 
-.imgHero{
+.imgHero {
   /* border: 2px solid red; */
   width: 200px;
   position: relative;
-  left: 620px;
+  left: 720px;
   bottom: 350px;
   z-index: 10;
-  >img{
-  width:700px;
+  > img {
+    width: 650px;
+    height: 450px;
+
   }
 }
-.imgHero2{
+.imgHero2 {
   /* border: 2px solid red; */
   width: 100px;
   position: relative;
-  left: 1100px;
-  bottom: 850px;
-  >img{
-  width:300px;
-
+  left: 1200px;
+  bottom: 800px;
+  > img {
+    width: 300px;
   }
 }
 
 
+/* feature  */
+
+
+.featureSection {
+  /* border: 2px solid red; */
+  display: flex;
+  /* flex-direction: column; */
+  margin-top: 8%;
+  margin-bottom: 8%;
+  margin-left: 6.5%;
+  > .featureWrite {
+    /* border: 2px solid blue; */
+    display: flex;
+    margin-top: -5px;
+    flex-direction: column;
+    width: 20%;
+    > h1 {
+      color: #292929;
+      margin-bottom: 20px;
+      font-family: "Inter", serif;
+      font-weight: 500;
+    }
+    > p {
+      color: #898e88;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      line-height: 1.8;
+
+    }
+    > button {
+      width: 40%;
+      background-color: #2f2f2f;
+      color: #fff;
+      font-size: 1rem;
+      padding: 13px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: "Inter", serif;
+      border: 0.1px solid white;
+      &:hover {
+        border: 0.1px solid black;
+      }
+    }
+  }
+}
+.featureImgs{
+  margin-left: 8%;
+  display: flex;
+  gap: 5%;
+  >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >img{
+    width: 17.5rem;
+    margin-bottom:10%;
+    height: 20rem;
+   
+    }
+    >p{
+      font-size: 1rem;
+      font-family: "Inter", serif;
+      font-weight: 550;
+      margin-bottom: 5%;
+      color:  #292929;
+    }
+    h2{
+      color:  #292929;
+    }
+  }
+  
+  
+}
+
+
+
+/* chooseUs  */
+  .chooseUs{
+    border: 5px solid red;
+  }
+
+  .chooseWrite{
+    border: 4px solid blue;
+    width: 40%;
+    margin-left: 5%;
+  }
+
+  .chooseHeading{
+    border: 3px solid pink;
+  }
+
+  .chooseBox{
+    border: 2px solid purple;
+
+  }
 
 
 
@@ -112,7 +207,7 @@ line-height: 27px;
   font-family: "Roboto", sans-serif;
 }
 
-.home-container-dark{
+.home-container-dark {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,7 +221,6 @@ line-height: 27px;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
 }
-
 
 .home-container-dark h1 {
   font-size: 2.2rem;
@@ -147,7 +241,7 @@ line-height: 27px;
   font-family: "Georgia", serif;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
-} 
+}
 
 .home-container-dark h1:hover {
   color: #ff7e00;
@@ -180,7 +274,7 @@ line-height: 27px;
   transition: all 0.3s ease-in-out;
 }
 
-.darkmode button{
+.darkmode button {
   background-color: #222;
   color: #fff;
   font-size: 1rem;
@@ -200,18 +294,17 @@ line-height: 27px;
   transform: scale(1.05);
 }
 
-.darkmode button:hover{
+.darkmode button:hover {
   background-color: #ff7e00;
   color: #222;
   border-color: #ff7e00;
   transform: scale(1.05);
 }
 
-.Increment{
+.Increment {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 
 @media (max-width: 768px) {
   .home-container h1 {
@@ -229,7 +322,6 @@ line-height: 27px;
     gap: 1.5rem;
   }
 }
-
 
 @media (max-width: 768px) {
   .heroSection {
@@ -255,17 +347,20 @@ line-height: 27px;
     margin: 15px 0;
   }
 
-  .hero-btn1, .hero-btn2 {
+  .hero-btn1,
+  .hero-btn2 {
     font-size: 0.9rem;
     padding: 10px 20px;
     margin: 10px 5px;
   }
 
-  .home-container, .home-container-dark {
+  .home-container,
+  .home-container-dark {
     padding: 2rem 1rem;
   }
 
-  .home-container h1, .home-container-dark h1 {
+  .home-container h1,
+  .home-container-dark h1 {
     font-size: 1.8rem;
   }
 
@@ -274,7 +369,8 @@ line-height: 27px;
     gap: 1rem;
   }
 
-  .action-btn, .darkmode button {
+  .action-btn,
+  .darkmode button {
     font-size: 0.9rem;
     padding: 10px 20px;
     margin: 10px 0;
@@ -290,16 +386,19 @@ line-height: 27px;
     font-size: 0.8rem;
   }
 
-  .hero-btn1, .hero-btn2 {
+  .hero-btn1,
+  .hero-btn2 {
     font-size: 0.8rem;
     padding: 8px 15px;
   }
 
-  .home-container h1, .home-container-dark h1 {
+  .home-container h1,
+  .home-container-dark h1 {
     font-size: 1.5rem;
   }
 
-  .action-btn, .darkmode button {
+  .action-btn,
+  .darkmode button {
     font-size: 0.8rem;
     padding: 8px 15px;
   }
