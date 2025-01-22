@@ -170,27 +170,104 @@ body {
 
 /* chooseUs  */
   .chooseUs{
-    border: 5px solid red;
+    /* border: 5px solid red; */
+    display: flex;
+    padding-top: 6%;
   }
 
   .chooseWrite{
-    border: 4px solid blue;
-    width: 40%;
-    margin-left: 5%;
+    /* border: 4px solid blue; */
+    min-width: 35%;
+    margin-left: 6.7%;
+    height: 30rem;
   }
 
   .chooseHeading{
-    border: 3px solid pink;
+    /* border: 3px solid pink; */
+    >h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    }
+    p{
+      font-size:0.9rem;
+      color: #898e88;
+    }
   }
 
-  .chooseBox{
-    border: 2px solid purple;
+  .chooseBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    gap: 20px; /* Adjust the spacing between grid items */
+    /* margin: 20px 0;  */
+    margin-top: 5rem;
+  }
+  
+  .chooseBox > div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    /* padding: 20px; */
+    /* border: 1px solid #ccc;  */
+    /* border-radius: 8px;  */
+    /* background-color: #f9f9f9; */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
+  }
+  
+  .chooseBox h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #292929;
+    margin: 10px 0;
+    /* text-align: center; */
+  }
+  
+  .chooseBox p {
+    font-size: 0.86rem;
+    color:#898e88;
+    /* text-align: center; */
+  }
+  
+  .chooseBox svg {
+    font-size: 2.5rem;
+    color: #333; /* Icon color */
+    margin-bottom: 10px;
+  }
+  
 
+
+
+  .chooseImg{
+    .chaar{
+      img{
+        width: 70%;
+        position: relative;
+        top: -220px;
+        margin-left: 115px;
+        border-radius: 100px;
+      }
+    
+    }
+    .grid1{
+      img{
+      width: 38%;
+      position: relative;
+      top: -90px;
+      margin-left: 20px;
+      }
+      
+    }
   }
 
 
 
 
+
+
+
+  
 
 .home-container {
   display: flex;

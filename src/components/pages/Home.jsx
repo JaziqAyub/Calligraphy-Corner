@@ -7,6 +7,8 @@ import Component2 from "../../assets/Component2.png";
 import ALLAH from "../../assets/ALLAH.jpg";
 import Bookmark from "../../assets/Bookmark.jpg";
 import birthday from "../../assets/birthday.jpg";
+import chaar from "../../assets/chaar.png";
+import grid from "../../assets/grid.png";
 import { RiBusLine } from "react-icons/ri";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { MdWorkspacePremium } from "react-icons/md";
@@ -130,7 +132,7 @@ const Home = (props) => {
               <HiOutlineShoppingBag />
               <h2>Easy to Shop</h2>
               <p>
-                Browse, customize, and order with ease—your perfect calligraphy
+                Browse, customize, and order with ease your perfect calligraphy
                 piece is just a click away.
               </p>
             </div>
@@ -156,9 +158,23 @@ const Home = (props) => {
 
 
         <div className="chooseImg">
+          <div className="grid1">
+          <img  src={grid} alt="grid" />
+            
+          </div>
+          <div className="chaar">
+          <img  src={chaar} alt="img" />
 
+          </div>
         </div>
       </div>
+
+
+
+
+
+
+
 
       <div
         className={enableDarkMode ? "home-container-dark" : "home-container"}
