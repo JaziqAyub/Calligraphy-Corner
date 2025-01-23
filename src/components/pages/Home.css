@@ -77,7 +77,6 @@ body {
   > img {
     width: 650px;
     height: 450px;
-
   }
 }
 .imgHero2 {
@@ -91,9 +90,7 @@ body {
   }
 }
 
-
 /* feature  */
-
 
 .featureSection {
   /* border: 2px solid red; */
@@ -119,7 +116,6 @@ body {
       margin-bottom: 20px;
       font-size: 0.85rem;
       line-height: 1.8;
-
     }
     > button {
       width: 40%;
@@ -137,129 +133,168 @@ body {
     }
   }
 }
-.featureImgs{
+.featureImgs {
   margin-left: 8%;
   display: flex;
   gap: 5%;
-  >div{
+  > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    >img{
-    width: 17.5rem;
-    margin-bottom:10%;
-    height: 20rem;
-   
+    > img {
+      width: 17.5rem;
+      margin-bottom: 10%;
+      height: 20rem;
     }
-    >p{
+    > p {
       font-size: 1rem;
       font-family: "Inter", serif;
       font-weight: 550;
       margin-bottom: 5%;
-      color:  #292929;
+      color: #292929;
     }
-    h2{
-      color:  #292929;
+    h2 {
+      color: #292929;
     }
   }
-  
-  
 }
 
-
-
 /* chooseUs  */
-  .chooseUs{
-    /* border: 5px solid red; */
-    display: flex;
-    padding-top: 6%;
-  }
 
-  .chooseWrite{
-    /* border: 4px solid blue; */
-    min-width: 35%;
-    margin-left: 6.7%;
-    height: 30rem;
-  }
+.chooseUs {
+  /* border: 5px solid red; */
+  display: flex;
+  padding-top: 6%;
+}
 
-  .chooseHeading{
-    /* border: 3px solid pink; */
-    >h1{
+.chooseWrite {
+  /* border: 4px solid blue; */
+  min-width: 35%;
+  margin-left: 6.7%;
+  height: 30rem;
+}
+
+.chooseHeading {
+  /* border: 3px solid pink; */
+  > h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: 500;
+  }
+  p {
+    font-size: 0.9rem;
+    color: #898e88;
+  }
+}
+
+.chooseBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-rows: repeat(2, 1fr); /* Two rows */
+  gap: 20px; /* Adjust the spacing between grid items */
+  /* margin: 20px 0;  */
+  margin-top: 5rem;
+}
+
+.chooseBox > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  /* padding: 20px; */
+  /* border: 1px solid #ccc;  */
+  /* border-radius: 8px;  */
+  /* background-color: #f9f9f9; */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
+}
+
+.chooseBox h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #292929;
+  margin: 10px 0;
+  /* text-align: center; */
+}
+
+.chooseBox p {
+  font-size: 0.86rem;
+  color: #898e88;
+  /* text-align: center; */
+}
+
+.chooseBox svg {
+  font-size: 2.5rem;
+  color: #333; /* Icon color */
+  margin-bottom: 10px;
+}
+
+.chooseImg {
+  .chaar {
+    img {
+      width: 70%;
+      position: relative;
+      top: -220px;
+      margin-left: 115px;
+      border-radius: 100px;
     }
-    p{
-      font-size:0.9rem;
-      color: #898e88;
-    }
   }
-
-  .chooseBox {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(2, 1fr); /* Two rows */
-    gap: 20px; /* Adjust the spacing between grid items */
-    /* margin: 20px 0;  */
-    margin-top: 5rem;
-  }
-  
-  .chooseBox > div {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    /* padding: 20px; */
-    /* border: 1px solid #ccc;  */
-    /* border-radius: 8px;  */
-    /* background-color: #f9f9f9; */
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
-  }
-  
-  .chooseBox h2 {
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: #292929;
-    margin: 10px 0;
-    /* text-align: center; */
-  }
-  
-  .chooseBox p {
-    font-size: 0.86rem;
-    color:#898e88;
-    /* text-align: center; */
-  }
-  
-  .chooseBox svg {
-    font-size: 2.5rem;
-    color: #333; /* Icon color */
-    margin-bottom: 10px;
-  }
-  
-
-
-
-  .chooseImg{
-    .chaar{
-      img{
-        width: 70%;
-        position: relative;
-        top: -220px;
-        margin-left: 115px;
-        border-radius: 100px;
-      }
-    
-    }
-    .grid1{
-      img{
+  .grid1 {
+    img {
       width: 38%;
       position: relative;
       top: -90px;
       margin-left: 20px;
-      }
-      
     }
   }
+}
+
+/* Customize  */
+
+
+
+.customize {
+  /* border: 2px solid red; */
+  /* min-height: 20px */
+  margin-top: -150px;
+  display: flex;
+}
+
+.customImg {
+  min-width: 60%;
+  /* border: 2px solid blue; */
+  img {
+    width: 300px;
+  }
+}
+
+.customImg2 {
+  img {
+    width: 55%;
+    position: relative;
+    top: -170px;
+    margin-left: 145px;
+    border-radius: 100px;
+  }
+}
+.customImg3 {
+  img {
+    width: 40%;
+    position: relative;
+    top: -500px;
+    margin-left: 540px;
+    border-radius: 80px;
+  }
+}
+.customImg4 {
+  img {
+    width: 22%;
+    /* height: 20%; */
+    position: relative;
+    top: -1210px;
+    margin-left: 675px;
+    border-radius: 45px;
+  }
+}
 
 
 
@@ -267,7 +302,81 @@ body {
 
 
 
-  
+.customWrite{
+  margin-top: 13rem;
+  /* border: 1px solid red; */
+
+}
+
+.customHeading {
+
+  > h1 {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: #292929;
+  margin-bottom: 2.5rem;
+  margin-left: 5rem;
+  /* border: 1px solid red; */
+width: 70%;
+  }
+  > p {
+    font-size: 0.84rem;
+    color: #898e88;
+
+    margin-bottom: 2.5rem;
+    margin-left: 5rem;
+    /* border: 1px solid red; */
+  width: 75%;
+  }
+}
+
+.customGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-rows: repeat(2, 1fr); /* Two rows */
+  gap: 20px; /* Adjust the spacing between grid items */
+  /* margin: 20px 0;  */
+  margin-top: 3rem;
+  /* border: 2px solid red; */
+  width:480px;
+  div{
+    font-size:0.9rem;
+    color: #898e88;
+    /* border: 1px solid red; */
+    width: 70%;
+    margin-left: 6rem;
+  }
+
+}
+
+.customButton{
+  width: 50%;
+  background-color: #2f2f2f;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0.1px solid white;
+  margin-top: 20px;
+  margin-left: 85px;
+  &:hover {
+    border: 0.1px solid black;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .home-container {
   display: flex;

@@ -9,6 +9,10 @@ import Bookmark from "../../assets/Bookmark.jpg";
 import birthday from "../../assets/birthday.jpg";
 import chaar from "../../assets/chaar.png";
 import grid from "../../assets/grid.png";
+import grid3 from "../../assets/grid3.png";
+import circle from "../../assets/circle.jpg";
+import split from "../../assets/split.jpg";
+import cover from "../../assets/cover.jpg";
 import { RiBusLine } from "react-icons/ri";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { MdWorkspacePremium } from "react-icons/md";
@@ -155,26 +159,83 @@ const Home = (props) => {
           </div>
         </div>
 
-
-
         <div className="chooseImg">
           <div className="grid1">
-          <img  src={grid} alt="grid" />
-            
+            <img src={grid} alt="grid" />
           </div>
           <div className="chaar">
-          <img  src={chaar} alt="img" />
-
+            <img src={chaar} alt="img" />
           </div>
         </div>
       </div>
 
+      {/* Customize  */}
 
-
-
-
-
-
+      <div className="customize">
+        <div className="customImg">
+          <div className="customImg1">
+            <img src={grid3} alt="" />
+          </div>
+          <div className="customImg2">
+            <img src={split} alt="" />
+          </div>
+          <div className="customImg3">
+            <img src={circle} alt="" />
+          </div>
+          <div className="customImg4">
+            <img src={cover} alt="" />
+          </div>
+        </div>
+        <div className="customWrite">
+          <div className="customHeading">
+            <h1>We Help You Customize Your Orders</h1>
+            <p>
+              Bring your vision to life with our personalized designs. Whether
+              it’s a special quote, name, or date, we tailor each piece to your
+              exact specifications, ensuring it’s as unique as you are.
+            </p>
+          </div>
+          <div className="customGrid">
+            <div>
+              <p>
+                <ul>
+                  <li>
+                    Personalised Canvases - Create a personalized masterpiece
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div>
+              <p>
+                <ul>
+                  <li>
+                    Custom Calendars - Add a personal touch to your special day
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div>
+              <p>
+                <ul>
+                  <li>
+                    Tailored Phone Covers - Express yourself with unique designs
+                  </li>
+                </ul>
+              </p>
+            </div>
+            <div>
+              <p>
+                <ul>
+                  <li>
+                    Personalized Bookmarks - A special touch for every reader
+                  </li>
+                </ul>
+              </p>
+            </div>
+          <button className="customButton">Customize</button>
+          </div>
+        </div>
+      </div>
 
       <div
         className={enableDarkMode ? "home-container-dark" : "home-container"}
