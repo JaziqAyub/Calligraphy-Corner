@@ -250,13 +250,12 @@ body {
 
 /* Customize  */
 
-
-
 .customize {
   /* border: 2px solid red; */
   /* min-height: 20px */
   margin-top: -150px;
   display: flex;
+  height: 55rem;
 }
 
 .customImg {
@@ -265,6 +264,9 @@ body {
   img {
     width: 300px;
   }
+}
+.customImg1{
+margin-left: 10px;
 }
 
 .customImg2 {
@@ -296,28 +298,20 @@ body {
   }
 }
 
-
-
-
-
-
-
-.customWrite{
+.customWrite {
   margin-top: 13rem;
   /* border: 1px solid red; */
-
 }
 
 .customHeading {
-
   > h1 {
     font-size: 2.4rem;
     font-weight: 500;
     color: #292929;
-  margin-bottom: 2.5rem;
-  margin-left: 5rem;
-  /* border: 1px solid red; */
-width: 70%;
+    margin-bottom: 2.5rem;
+    margin-left: 5rem;
+    /* border: 1px solid red; */
+    width: 70%;
   }
   > p {
     font-size: 0.84rem;
@@ -326,7 +320,7 @@ width: 70%;
     margin-bottom: 2.5rem;
     margin-left: 5rem;
     /* border: 1px solid red; */
-  width: 75%;
+    width: 75%;
   }
 }
 
@@ -338,18 +332,17 @@ width: 70%;
   /* margin: 20px 0;  */
   margin-top: 3rem;
   /* border: 2px solid red; */
-  width:480px;
-  div{
-    font-size:0.9rem;
+  width: 480px;
+  div {
+    font-size: 0.9rem;
     color: #898e88;
     /* border: 1px solid red; */
     width: 70%;
     margin-left: 6rem;
   }
-
 }
 
-.customButton{
+.customButton {
   width: 50%;
   background-color: #2f2f2f;
   color: #fff;
@@ -365,11 +358,60 @@ width: 70%;
   }
 }
 
+/* TESTIMONIALS  */
+
+.testimonials {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.testHeading h1 {
+  margin-bottom: 20px;
+  font-weight: 450;
+  color: #292929;
+}
+
+.testHeading p {
+  max-width: 600px;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #898e88;
+  /* margin-bottom: 20px; */
+}
+
+.testPerson {
+  margin-top: 20px;
+  color: #292929;
+  font-size: 0.9rem;
+}
 
 
-
-
-
+/* ARTIST  */
+.artist{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid red; */
+  min-height: 35vh;
+  h1{
+    font-weight: 450;
+    color: #292929;
+  }
+  p{
+    line-height: 1.6;
+    font-size: 0.9rem;
+    color: #898e88;
+    width: 90%;
+    margin-top: 1.8rem;
+    text-align: center;
+  }
+}
 
 
 

@@ -232,33 +232,107 @@ const Home = (props) => {
                 </ul>
               </p>
             </div>
-          <button className="customButton">Customize</button>
+            <button className="customButton">Customize</button>
           </div>
         </div>
       </div>
 
-      <div
+      {/* Testimonials  */}
+
+      <div className="testimonials">
+        <div className="testHeading">
+          <h1>Testimonials</h1>
+          <p>
+            “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
+            quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
+            vulputate velit imperdiet dolor tempor tristique. Pellentesque
+            habitant morbi tristique senectus et netus et malesuada fames ac
+            turpis egestas. Integer convallis volutpat dui quis scelerisque.”
+          </p>
+        </div>
+        <div className="testPerson">
+          <h4>- John Doe</h4>
+        </div>
+      </div>
+
+      {/* artist  */}
+      <div className="artist">
+        <h1>Meet The Artist</h1>
+        <p>
+          At{" "}
+          <em>
+            <strong>Calligraphy Corner</strong>
+          </em>
+          , every stroke of the brush tells a story, and that’s because our
+          talented artist brings passion, skill, and a deep love for the craft
+          into every piece created. With years of experience in the art of
+          calligraphy, our artist has honed their technique, blending
+          traditional methods with modern designs to create truly unique works
+          of art. What sets them apart is not just technical mastery, but the
+          ability to infuse emotion and meaning into every letter, turning each
+          creation into a personal expression of beauty and thought. Whether
+          it's an intricate piece for a special occasion or a personalized
+          canvas to brighten your home, the artist’s attention to detail and
+          commitment to quality ensures that every design is crafted to
+          perfection. Inspired by a love for handwritten art and the timeless
+          elegance it brings, their goal is to create pieces that resonate with
+          people on a personal level, transforming words into art that will be
+          cherished for years to come.
+        </p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* OG  */}
+
+
+
+      {/* <div
         className={enableDarkMode ? "home-container-dark" : "home-container"}
-      >
-        <h1>
+      > */}
+        {/* <h1>
           {props.message} {props.user}
-        </h1>
+        </h1> */}
         {/* <h1> {props.message} {store.username}</h1> */}
-        <div className="card-container">
+        {/* <div className="card-container">
           <Card happyMessage={props.happy} shop={shop} />
-        </div>
-        <div className="Increment">
+        </div> */}
+        {/* <div className="Increment">
           <button onClick={handleIncrement}>Increment {count}</button>
-        </div>
-        <button className="action-btn" onClick={handleExplore}>
+        </div> */}
+        {/* <button className="action-btn" onClick={handleExplore}>
           Explore Now
-        </button>
-        <div className="darkmode">
+        </button> */}
+        {/* <div className="darkmode">
           <button onClick={handleDarkMode}>
             {enableDarkMode ? "Enable Light Mode" : "Enable Dark Mode"}
           </button>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </>
   );
 };
