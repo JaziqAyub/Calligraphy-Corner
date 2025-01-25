@@ -233,8 +233,8 @@ const getUser = async (req, res) => {
   try {
     const userId = req.userId;
     const user = await User.findById(userId).populate({
-      path : "items"
-    })
+      path: "items",
+    });
 
     if (user) {
       res.status(200).json({ message: "User Found", payload: user });
@@ -304,7 +304,7 @@ const uploadItemPic = async (req, res) => {
     }
 
     if (user.role == "admin") {
-      const {image} = req.body;
+      const { image } = req.body;
       const upload = await uploadToCloud(image);
 
       item.picUrls = upload.secure_url;
@@ -319,11 +319,7 @@ const uploadItemPic = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    messageHandler(
-      res,
-      500,
-      "Server error"
-    );
+    messageHandler(res, 500, "Server error");
   }
 };
 

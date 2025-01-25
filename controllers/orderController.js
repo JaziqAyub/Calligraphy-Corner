@@ -13,7 +13,7 @@ const createOrder = async (req, res) => {
       req.body;
 
     if (!item || item.isActive === false) {
-      messageHandler(res, 404, "Item unavailable.");
+      return messageHandler(res, 404, "Item unavailable.");
     }
     if (user.role === "aDmin" || !user) {
       return messageHandler(
@@ -54,9 +54,7 @@ const getOrderById = async (req, res) => {
     if (!order) {
       return messageHandler(res, 404, "Order not found.");
     }
-    if (order) {
-      return messageHandler(res, 200, order);
-    }
+    return messageHandler(res, 200, "Order details fetched successfully", order);
   } catch (error) {
     console.log(error);
   }

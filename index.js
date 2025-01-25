@@ -34,6 +34,7 @@ const {
 } = require("./controllers/orderController");
 const { createPaymentIntent } = require("./controllers/paymentController");
 const { multmid } = require("./middlewares/multer");
+const { addToCart } = require("./controllers/cartController");
 require("dotenv").config(); //.ENV
 
 //middleware
@@ -64,16 +65,14 @@ app.post("/user/delete", isAuthenticated, deleteUserHandler); //done
 app.get("/getUser", isAuthenticated, getUser); //done
 app.post("/user/changePassword", isAuthenticated, changePasshandler);
 
-
 //itemRoutes
 app.post("/admin/createItem", isAuthenticated, createItem); //done
 app.get("/items/all", isAuthenticated, getAllItems);
 app.get("/items/item", isAuthenticated, getItemById);
-app.put("/item/edit", isAuthenticated, editItemById); 
-app.delete("/item/delete/:itemId", isAuthenticated, deleteItemById);//done
+app.put("/item/edit", isAuthenticated, editItemById);
+app.delete("/item/delete/:itemId", isAuthenticated, deleteItemById); //done
 //cloudinary
 app.post("/admin/upload/Itempicture", multmid, isAuthenticated, uploadItemPic); //done
-
 
 //orderRoutes
 app.post("/customer/create/order", isAuthenticated, createOrder);
@@ -83,6 +82,10 @@ app.get("/customer/fetchAll/orders", isAuthenticated, getAllOrders);
 
 //paymentRoute
 app.post("/customer/pay/order", isAuthenticated, createPaymentIntent);
+
+//cart
+app.post("/add-to-cart", isAuthenticated, addToCart);
+
 
 const PORT = process.env.PORT;
 

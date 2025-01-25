@@ -25,7 +25,7 @@ const createItem = async (req, res) => {
       category,
       role,
     });
-    await newItem.save(); //new because this is instnce of already made Item
+    await newItem.save(); //new because this is instance of already made Item
     if (newItem) {
       user.items.push(newItem._id)
       await user.save()
