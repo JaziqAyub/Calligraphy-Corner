@@ -16,7 +16,7 @@ const Store = () => {
     loading: false,
     username: "",
     user: {}, //to get whole user
-    item: {},
+    item: [],
   });
   // getUser of  backend
   const fetchData = useCallback(async () => {
@@ -33,6 +33,29 @@ const Store = () => {
       console.log(error);
     }
   }, []);
+
+
+//getAllItems
+  const fetchItem = useCallback(async () => {
+    // if (!userId) return;
+    try {
+      const response = await api.get("/items/all");
+      console.log(response);
+      setStore((prev) => ({
+        ...prev,
+        item: response.data.payload
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+
+
+
+
+
+
 
   //login
   const handleLogin = async (e, formData) => {
@@ -242,11 +265,14 @@ const Store = () => {
   //order
   const createOrder = async (itemId, formData) => {
     try {
-      const res = await api.post(`/customer/create/order?itemId=${itemId}`, formData);
+      const res = await api.post(
+        `/customer/create/order?itemId=${itemId}`,
+        formData
+      );
       if (res) {
-        toast.success("Order Created Successfuly, please initiate the payment");
-        const orderId = res.data.payload._id
-        navigate(`/order/payment/${orderId}`)
+        // toast.success("Order Created Successfuly, please initiate the payment");
+        const orderId = res.data.payload._id;
+        navigate(`/payment/${orderId}`);
       } else {
         toast.error("Order creation failed!!!");
       }
@@ -256,21 +282,22 @@ const Store = () => {
     }
   };
 
+  //cancelOrder
   const cancelOrder = async (orderId) => {
     try {
-      const res = await api.put(`/customer/cancel/order?orderId=${orderId}`)
-      console.log(res)
+      const res = await api.put(`/customer/cancel/order?orderId=${orderId}`);
+      console.log(res);
 
       if (res.status === 200) {
-        toast.success(res.data.message || "Order Cancelled ")
+        toast.success(res.data.message || "Order Cancelled ");
       } else {
-        toast.error("Order cancellation failed")
+        toast.error("Order cancellation failed");
       }
     } catch (error) {
-      console.log(error)
-      toast.error("Order cancellation server erro")
+      console.log(error);
+      toast.error("Order cancellation server erro");
     }
-  }
+  };
   return (
     <ContextJ.Provider
       value={{
@@ -287,10 +314,10 @@ const Store = () => {
         editItemById,
         getItemById,
         createOrder,
-        cancelOrder
+        cancelOrder,
+        fetchItem
       }}
     >
-
       <App />
     </ContextJ.Provider>
   );

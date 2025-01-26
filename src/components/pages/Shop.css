@@ -12,7 +12,7 @@
     justify-content: center;
     gap: 30px;
     padding: 40px;
-    background: linear-gradient(135deg, #1c1c1c, #343434) !important;
+    background: #3E5B52 !important;
     min-height: 100vh; /* Ensure full height for the container */
   }
   

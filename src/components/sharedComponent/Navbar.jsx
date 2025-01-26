@@ -11,8 +11,6 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import { ContextJ } from "../../context/Store";
 import { LuUserRound } from "react-icons/lu";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-import { IoCartOutline } from "react-icons/io5";
-import { FiUser } from "react-icons/fi";
 // import { DeleteUser } from "./DeleteUser";
 
 const Navbar = () => {
@@ -33,7 +31,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="logowhole">
         <Link to="/">
-          <img src={logo} alt="Logo" Call />
+          <img src={logo} alt="Logo" />
         </Link>
       </div>
       <span>
@@ -54,11 +52,13 @@ const Navbar = () => {
         </li>
       </ul>
 
+      {/* small screen menuBar drop down  */}
+
       <div className="menubar " onClick={handleNav}>
         <GiHamburgerMenu />
 
         {showSideNav && (
-          <ul className="animate__animated animate__slideInLeft">
+          <ul className="">
             <li>
               <Link to="/admin/profile">
                 <LuUserRound /> Admin Profile
@@ -126,8 +126,10 @@ const Navbar = () => {
         )}
       </div>
 
+      {/* Big Screen dropdown  */}
+
       <div onClick={handleNav} className="dropdown">
-        <FiUser />
+        <GiHamburgerMenu />
         {showSideNav && (
           <ul>
             <li>
@@ -177,9 +179,6 @@ const Navbar = () => {
             </li>
           </ul>
         )}
-        <span className="cart">
-          <IoCartOutline />
-        </span>
       </div>
     </div>
   );

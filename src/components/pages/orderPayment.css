@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    /* font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0; */
+    background-color: #f9f9f9;
+  }
+  
+  /* Container */
+  .order-payment-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Item Card */
+  .item-order{
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  /* .item-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+  } */
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.2s;
+  }
+  
+  form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Button Styles */
+  .buy-now-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+  }
+  
+  .buy-now-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+  }
+  
+  .buy-now-btn:active {
+    background-color: #004080;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .item-order {
+      width: 95%;
+    }
+  
+    form input {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .buy-now-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+  

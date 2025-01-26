@@ -120,20 +120,25 @@
 .dropdown  {
   display: flex;
   font-size: 1.5em;
-  margin-left: 5px;
+  margin-left: 40px;
   color: rgb(253, 253, 253);
   cursor: pointer;
   > ul {
     display: flex;
     flex-direction: column;
+    align-items:start;
     position: absolute;
     right: 0;
-    background: linear-gradient(135deg, #1c1c1c, #343434);
-    top: 80px;
-    width: 50vh;
-    height: 82.9vh;
+    margin-right: 2rem;
+    background: whitesmoke;
+    top: 90px;
+    width: 20vh;
+    height: 45vh;
     > li {
-      font-size: 2rem;
+      font-size: 0.8rem;
+      a{
+        color: #000000;
+      }
     }
   }
 }
@@ -143,7 +148,7 @@
     color: rgb(255, 255, 0);
 }  
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 764px) {
   .navbar{
     span{
       display: none;
@@ -189,16 +194,22 @@
     color: rgb(253, 253, 253);
     cursor: pointer;
     > ul {
+    /* border: 1px solid red; */
       display: flex;
       flex-direction: column;
-      position: absolute;
-      left: 0;
-      background: linear-gradient(135deg, #1c1c1c, #343434);
-      top: 86px;
-      width: 50vh;
-      height: 81.69vh;
+      align-items: start;
+      gap: 10px;
+      background: rgb(245, 245, 245);
+      top: 90px;
+      width: 25vh;
+      height: 36vh;
+      margin-left: 35px;
       > li {
-        font-size: 2rem;
+        font-size: 1rem;
+        /* border: 1px solid red; */
+        a{
+        color: black;
+        }
       }
     }
   }

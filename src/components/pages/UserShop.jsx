@@ -4,29 +4,22 @@ import "./Shop.css";
 import EditForm from "../atoms/EditForm";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-// import Order from "./Order";
 
-const Shop = () => {
-  const { user,  deleteItemById } = useContext(ContextJ);
+const UserShop = () => {
+  const { item, deleteItemById } = useContext(ContextJ);
   const [editForm, setEditForm] = useState(false);
-  // const [showOrder, setShowOrder] = useState(false);
+  const navigate = useNavigate();
 
-  // const formData = {
-  //   paymentMode: "card",
-  //   shippingAddress: "Bemina",
-  //   landmark: "Hospital",
-  //   city: "Sgr",
-  //   postalCode: "190018",
-  // };
-  const navigate = useNavigate()
+  console.log(item); // Debugging
+
   return (
     <>
       {editForm ? (
         <EditForm setEditForm={setEditForm} />
       ) : (
         <div className="items">
-          {user.items &&
-            user.items.map((element, index) => (
+          {Array.isArray(item) && item.length > 0 ? (
+            item.map((element, index) => (
               <div className="item" key={element.id || index}>
                 <div className="item-header">
                   <h3 className="item-title">{element.itemTitle}</h3>
@@ -62,24 +55,21 @@ const Shop = () => {
                   </p>
                   <p className="item-category">#{element.category}</p>
                 </div>
-                {/* <button>
-                  Add to Cart
-                </button> */}
                 <button
-                  // onClick={async () => {
-                  //   createOrder(element._id, formData);
-                  // }}
-                  onClick={navigate("/order/payment")}
+                  onClick={() => navigate("/order/payment")}
                   className="buy-now-btn"
                 >
                   Buy Now
                 </button>
               </div>
-            ))}
+            ))
+          ) : (
+            <p>No items available</p>
+          )}
         </div>
       )}
     </>
   );
 };
 
-export default Shop;
+export default UserShop;

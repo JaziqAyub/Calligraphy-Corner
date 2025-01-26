@@ -12,11 +12,12 @@ const Footer = () => {
         <div className="gridPara">
           <p>
           Where words become art, every stroke tells a story, and creativity finds its voice in timeless elegance. Let us add a touch of elegance to your special moments.
+          </p>
+
           <div>
-          <img src={insta} alt="igLogo" />
+          <img src={insta} alt="igLogo"onClick={()=>{ window.open("https://www.instagram.com/_calligraphy.corner_", "_blank"); }} style={{"cursor" : "pointer"}}/>
           </div>
         
-          </p>
         </div>
         <div className="gridCol1">
           <ul>

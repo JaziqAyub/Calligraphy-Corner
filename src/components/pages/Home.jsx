@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Card from "../sharedComponent/Card";
+import React from "react";
+// import Card from "../sharedComponent/Card";
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import HeroImg from "../../assets/HeroImg.png";
 import Component2 from "../../assets/Component2.png";
 import ALLAH from "../../assets/ALLAH.jpg";
@@ -19,12 +19,7 @@ import { MdWorkspacePremium } from "react-icons/md";
 import { LuHeartHandshake } from "react-icons/lu";
 
 const Home = (props) => {
-  const shop = " Happy shopping!";
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
-  const handleIncrement = () => {
-    setCount((count) => count + 1);
-  };
 
   // const [username, setUsername] = useState("")
 
@@ -43,13 +38,13 @@ const Home = (props) => {
   //   fetchData()
   // },[])
 
-  const [enableDarkMode, setEnableDarkMode] = useState(false);
-  const handleDarkMode = () => {
-    setEnableDarkMode(!enableDarkMode);
-  };
 
   const handleExplore = () => {
     navigate("/shop");
+  };
+
+  const handleCustomization = () => {
+    window.open("https://www.instagram.com/direct/t/17845846670587721", "_blank");
   };
 
   // const {store} = useContext(ContextJ)
@@ -91,7 +86,7 @@ const Home = (props) => {
             From elegant canvases to personalized designs, each creation tells a
             story crafted with passion and precision.
           </p>
-          <button>Explore</button>
+          <button onClick={handleExplore}> Explore</button>
         </div>
         <div className="featureImgs">
           <div>
@@ -232,7 +227,7 @@ const Home = (props) => {
                 </ul>
               </p>
             </div>
-            <button className="customButton">Customize</button>
+            <button className="customButton" onClick={handleCustomization}>Customize</button>
           </div>
         </div>
       </div>
@@ -281,53 +276,25 @@ const Home = (props) => {
         </p>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* OG  */}
-
-
 
       {/* <div
         className={enableDarkMode ? "home-container-dark" : "home-container"}
       > */}
-        {/* <h1>
+      {/* <h1>
           {props.message} {props.user}
         </h1> */}
-        {/* <h1> {props.message} {store.username}</h1> */}
-        {/* <div className="card-container">
+      {/* <h1> {props.message} {store.username}</h1> */}
+      {/* <div className="card-container">
           <Card happyMessage={props.happy} shop={shop} />
         </div> */}
-        {/* <div className="Increment">
+      {/* <div className="Increment">
           <button onClick={handleIncrement}>Increment {count}</button>
         </div> */}
-        {/* <button className="action-btn" onClick={handleExplore}>
+      {/* <button className="action-btn" onClick={handleExplore}>
           Explore Now
         </button> */}
-        {/* <div className="darkmode">
+      {/* <div className="darkmode">
           <button onClick={handleDarkMode}>
             {enableDarkMode ? "Enable Light Mode" : "Enable Dark Mode"}
           </button>

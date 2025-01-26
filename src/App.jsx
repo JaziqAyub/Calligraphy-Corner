@@ -19,6 +19,8 @@ import UserProfile from "./components/pages/AdminProfile";
 import Shop from "./components/pages/Shop";
 import UploadItemPic from "./components/molecules/UploadItemPic";
 import OrderPayment from "./components/pages/OrderPayment";
+import PaymentMethod from "./components/pages/PaymentMethod";
+import UserShop from "./components/pages/UserShop";
 
 const App = () => {
   const message =
@@ -29,7 +31,7 @@ const App = () => {
   // const userId = localStorage.getItem("userId")
   // const [loggedIn, setLoggedIn] = useState(false)
 
-  const { fetchData, loading } = useContext(ContextJ);
+  const { fetchData, loading, fetchItem } = useContext(ContextJ);
   // const userId = localStorage.getItem("userId");
 
   // getUser of  backend
@@ -47,7 +49,8 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [loading, fetchData]);
+    fetchItem();
+  }, [loading, fetchData, fetchItem]);
 
   return (
     <>
@@ -72,9 +75,12 @@ const App = () => {
           {/* frontend  */}
             <Route path = "/admin/profile" element= {<UserProfile/>}/>
             <Route path = "/shop" element= {<Shop/>}/>
+            <Route path = "/usershop" element= {<UserShop/>}/>
             <Route path = "/admin/upload" element= {<UploadItemPic/>}/>
+            
             {/* paymentRoute */}
-            <Route path = "/order/payment/:orderId" element= {<OrderPayment/>}/>
+            <Route path = "/order/payment" element= {<OrderPayment/>}/>
+            <Route path = "/payment/:orderId" element= {<PaymentMethod/>}/>
         </Routes>
       </div>
 
