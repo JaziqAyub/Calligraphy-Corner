@@ -16,7 +16,7 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 const Navbar = () => {
   // const username = props.user;
   // const {username, loading} = useContext(ContextJ)
-  const { username } = useContext(ContextJ);
+  const { username, user } = useContext(ContextJ);
 
   const [showSideNav, setShowSideNav] = useState(false);
 
@@ -42,7 +42,7 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/shop">Shop</Link>
+          <Link to="/usershop">Shop</Link>
         </li>
         <li>
           <Link to="/about">About us</Link>
@@ -59,11 +59,11 @@ const Navbar = () => {
 
         {showSideNav && (
           <ul className="">
-            <li>
+          {  user && user.role === "admin" &&  <li>
               <Link to="/admin/profile">
                 <LuUserRound /> Admin Profile
               </Link>
-            </li>
+            </li>}
             <li>
               <Link to="/">
                 <FaHome /> Home
@@ -132,11 +132,11 @@ const Navbar = () => {
         <GiHamburgerMenu />
         {showSideNav && (
           <ul>
-            <li>
+        {  user && user.role === "admin" &&  <li>
               <Link to="/admin/profile">
                 <LuUserRound /> Admin Profile
               </Link>
-            </li>
+            </li>}
             <li>
               <Link to="/user/login">
                 <TbLogin2 /> Login

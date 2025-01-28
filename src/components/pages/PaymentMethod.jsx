@@ -14,7 +14,7 @@ const PaymentMethod = () => {
         <button
           onClick={() => {
             cancelOrder(orderId);
-            navigate("/shop");
+            navigate("/usershop");
           }}
         >
           Cancel Order

@@ -40,7 +40,7 @@ const Home = (props) => {
 
 
   const handleExplore = () => {
-    navigate("/shop");
+    navigate("/usershop");
   };
 
   const handleCustomization = () => {

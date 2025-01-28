@@ -18,13 +18,16 @@ const Shop = () => {
   //   city: "Sgr",
   //   postalCode: "190018",
   // };
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   return (
     <>
+    <h1 style={{"textAlign":"center", "color" : "white", backgroundColor: "darkolivegreen" , fontFamily: "sans-serif"}}>ADMIN DASHBOARD</h1>
+
       {editForm ? (
         <EditForm setEditForm={setEditForm} />
       ) : (
         <div className="items">
+          
           {user.items &&
             user.items.map((element, index) => (
               <div className="item" key={element.id || index}>
@@ -65,15 +68,15 @@ const Shop = () => {
                 {/* <button>
                   Add to Cart
                 </button> */}
-                <button
+                {/* <button
                   // onClick={async () => {
                   //   createOrder(element._id, formData);
                   // }}
-                  onClick={navigate("/order/payment")}
+                  // onClick={navigate("/order/payment")}
                   className="buy-now-btn"
                 >
                   Buy Now
-                </button>
+                </button> */}
               </div>
             ))}
         </div>

@@ -24,61 +24,58 @@ const OrderPayment = () => {
 
   return (
     <div className="order-payment-container">
-      <h2>Adress Details</h2>
-      {user.items &&
-        user.items.map((element, index) => (
-          <div className="item-order" key={element.id || index}>
-            <div>
-              {/* <h3 className="item-title">{element.itemTitle}</h3> */}
-              <form>
-                <input
-                  type="text"
-                  placeholder="Payment Mode"
-                  name="paymentMode"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  placeholder="Shipping Address"
-                  name="shippingAddress"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  placeholder="Landmark"
-                  name="landmark"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  placeholder="City"
-                  name="city"
-                  onChange={handleChange}
-                />
-                <input
-                  type="number"
-                  placeholder="Postal Code"
-                  name="postalCode"
-                  onChange={handleChange}
-                />
-              </form>
-
-              <button
-                onClick={async () => {
-                  await createOrder(element._id, formData);
-                  toast.success("Adress updated successfully!");
-                  // navigate(`/payment`, {
-                  //   state: { orderId: element._id, formData },
-                  // });
-                }}
-                className="buy-now-btn"
-              >
-                Proceed
-              </button>
-            </div>
-          </div>
-        ))}
+    <h2>Address Details</h2>
+    <div className="item-order">
+      <div>
+        <form>
+          <input
+            type="text"
+            placeholder="Payment Mode"
+            name="paymentMode"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Shipping Address"
+            name="shippingAddress"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Landmark"
+            name="landmark"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="City"
+            name="city"
+            onChange={handleChange}
+          />
+          <input
+            type="number"
+            placeholder="Postal Code"
+            name="postalCode"
+            onChange={handleChange}
+          />
+        </form>
+  
+        {user.items &&
+          user.items.map((element, index) => (
+            <button
+              key={element.id || index}
+              onClick={async () => {
+                await createOrder(element._id, formData);
+                toast.success("Address updated successfully!");
+              }}
+              className="buy-now-btn"
+            >
+              Proceed for payment
+            </button>
+          ))}
+      </div>
     </div>
+  </div>
   );
 };
 

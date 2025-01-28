@@ -74,7 +74,7 @@ const App = () => {
 
           {/* frontend  */}
             <Route path = "/admin/profile" element= {<UserProfile/>}/>
-            <Route path = "/shop" element= {<Shop/>}/>
+            <Route path = "/adminshop" element= {<Shop/>}/>
             <Route path = "/usershop" element= {<UserShop/>}/>
             <Route path = "/admin/upload" element= {<UploadItemPic/>}/>
             

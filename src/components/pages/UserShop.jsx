@@ -24,20 +24,20 @@ const UserShop = () => {
                 <div className="item-header">
                   <h3 className="item-title">{element.itemTitle}</h3>
                   <div className="item-actions">
-                    <MdEdit
+                    {/* <MdEdit
                       style={{ color: "green", cursor: "pointer" }}
                       onClick={() => {
                         sessionStorage.setItem("itemId", element._id);
                         setEditForm(true);
                       }}
-                    />
-                    <MdDelete
+                    /> */}
+                    {/* <MdDelete
                       style={{ color: "maroon", cursor: "pointer" }}
                       onClick={() => {
                         alert("Do you want to delete this item?");
                         deleteItemById(element._id);
                       }}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div className="item-image-wrapper">
