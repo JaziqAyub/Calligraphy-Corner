@@ -79,7 +79,7 @@ const App = () => {
             <Route path = "/admin/upload" element= {<UploadItemPic/>}/>
             
             {/* paymentRoute */}
-            <Route path = "/order/payment" element= {<OrderPayment/>}/>
+            <Route path = "/order/payment/:id" element= {<OrderPayment/>}/>
             <Route path = "/payment/:orderId" element= {<PaymentMethod/>}/>
         </Routes>
       </div>

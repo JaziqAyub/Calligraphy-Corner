@@ -2,11 +2,10 @@ import React, { useContext, useState } from "react";
 import { ContextJ } from "../../context/Store";
 import "./Shop.css";
 import EditForm from "../atoms/EditForm";
-import { MdDelete, MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const UserShop = () => {
-  const { item, deleteItemById } = useContext(ContextJ);
+  const { item } = useContext(ContextJ);
   const [editForm, setEditForm] = useState(false);
   const navigate = useNavigate();
 
@@ -56,7 +55,7 @@ const UserShop = () => {
                   <p className="item-category">#{element.category}</p>
                 </div>
                 <button
-                  onClick={() => navigate("/order/payment")}
+                  onClick={() => navigate(`/order/payment/${element._id}`)}
                   className="buy-now-btn"
                 >
                   Buy Now

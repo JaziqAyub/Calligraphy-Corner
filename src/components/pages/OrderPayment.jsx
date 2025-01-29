@@ -1,13 +1,12 @@
-
 import React, { useContext, useState } from "react";
+import { useParams } from "react-router-dom"; // Import useParams
 import { ContextJ } from "../../context/Store";
 import "./orderPayment.css";
 import { toast } from "react-toastify";
 
 const OrderPayment = () => {
-  // const { orderId } = useParams();
-  const { user, createOrder } = useContext(ContextJ);
-
+  const { id } = useParams(); // Get item ID from URL
+  const { item, createOrder } = useContext(ContextJ);
 
   const [formData, setFormData] = useState({
     paymentMode: "",
@@ -22,11 +21,20 @@ const OrderPayment = () => {
     setFormData((prevInput) => ({ ...prevInput, [name]: value }));
   };
 
+  const handleOrder = async () => {
+    const selectedItem = item.find((i) => i._id === id); // Find the correct item
+    if (selectedItem) {
+      await createOrder(selectedItem._id, formData);
+      toast.success("Order created successfully!");
+    } else {
+      toast.error("Item not found.");
+    }
+  };
+
   return (
     <div className="order-payment-container">
-    <h2>Address Details</h2>
-    <div className="item-order">
-      <div>
+      <h2>Address Details</h2>
+      <div className="item-order">
         <form>
           <input
             type="text"
@@ -59,23 +67,12 @@ const OrderPayment = () => {
             onChange={handleChange}
           />
         </form>
-  
-        {user.items &&
-          user.items.map((element, index) => (
-            <button
-              key={element.id || index}
-              onClick={async () => {
-                await createOrder(element._id, formData);
-                toast.success("Address updated successfully!");
-              }}
-              className="buy-now-btn"
-            >
-              Proceed for payment
-            </button>
-          ))}
+
+        <button onClick={handleOrder} className="buy-now-btn">
+          Proceed for payment
+        </button>
       </div>
     </div>
-  </div>
   );
 };
 
