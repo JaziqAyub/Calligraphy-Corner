@@ -4,7 +4,17 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+  .heroShop{
+    height: 37vh;
+    background-color:  #3e5b52;
+    p{
+      color: white;
+      font-weight: 600;
+      margin-left: 6.7rem;
+      padding-top: 6rem;
+      font-size: 3rem;
+    }
+  }
   /* Main container for all items */
   .items {
     display: flex;
@@ -12,15 +22,15 @@
     justify-content: center;
     gap: 30px;
     padding: 40px;
-    background: #3E5B52 !important;
+    /* background: whitesmoke !important; */
     min-height: 100vh; /* Ensure full height for the container */
   }
   
   /* Individual item card */
   .item {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); */
     overflow: hidden;
     width: 320px;
     height: 600px; /* Fixed height for consistency */
@@ -31,7 +41,7 @@
   
   .item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(131, 128, 128, 0.1);
   }
   
   /* Item header (title + actions) */
@@ -41,14 +51,17 @@
     align-items: center;
     padding: 15px 20px;
     background-color: #ffffff50 !important;
+    
   }
   
   .item-title {
-    font-size: 1em !important;
-    font-weight: 600 !important;
-    color: #3a3333 !important;
+    /* border: 2px solid red; */
+    font-size: 1.25em !important;
+    font-weight: 700 !important;
+    color: #131212 !important;
     flex-grow: 1;
-    margin-right: 10px;
+    text-align: center;
+    margin-top: -0.5rem;
     white-space: nowrap; /* Ensures no wrapping */
     overflow: hidden;
     text-overflow: ellipsis; /* Handles overflow text */
@@ -85,7 +98,7 @@
     height: 300px !important;
     max-height: 300px !important; /* Set max height to keep it consistent */
     object-fit: cover !important;
-    border-radius: 8px !important;
+    /* border-radius: 8px !important; */
   }
   
   /* Item details (description, cost, discount) */
@@ -105,10 +118,11 @@
   }
   
   .item-cost {
-    font-size: 1.1em !important;
-    color: #e91e63 !important;
+    font-size: 1em !important;
+    color: #111111 !important;
     font-weight: 600 !important;
     margin-bottom: 8px !important;
+    margin-top: -1.2em !important;
     text-align: center !important; /* Center the text */
   }
   
@@ -126,16 +140,16 @@
     color: #ffffff !important;
     padding: 5px 12px !important;
     width: 50% !important;
-    border-radius: 20px !important;
+    /* border-radius: 20px !important; */
     display: inline-block !important;
-    margin-top: 15px !important;
+    margin-top: -10px !important;
     margin: auto !important;
     text-align: center !important;
   }
   
   /* Buy Now button */
   .buy-now-btn {
-    background-color: #2196f3 !important;
+    background-color: #0c0d0d !important;
     color: #fff !important;
     border: none !important;
     border-radius: 25px !important;
@@ -145,11 +159,12 @@
     transition: background-color 0.3s ease, transform 0.2s ease ;
     width: 80% !important; /* Ensures the button stretches across the width */
     text-align: center !important;
-    margin: 20px auto !important;
+    margin:  auto !important;
   }
   
   .buy-now-btn:hover {
-    background-color: #000000 !important;
+    background-color: #3e5b52 !important;
+    
     transform: translateY(-4px) 
   }
   

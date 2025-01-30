@@ -13,6 +13,9 @@ const UserShop = () => {
 
   return (
     <>
+      <div className="heroShop">
+        <p>Shop Your Favorite Calligraphy Items here</p>
+      </div>
       {editForm ? (
         <EditForm setEditForm={setEditForm} />
       ) : (
@@ -20,25 +23,6 @@ const UserShop = () => {
           {Array.isArray(item) && item.length > 0 ? (
             item.map((element, index) => (
               <div className="item" key={element.id || index}>
-                <div className="item-header">
-                  <h3 className="item-title">{element.itemTitle}</h3>
-                  <div className="item-actions">
-                    {/* <MdEdit
-                      style={{ color: "green", cursor: "pointer" }}
-                      onClick={() => {
-                        sessionStorage.setItem("itemId", element._id);
-                        setEditForm(true);
-                      }}
-                    /> */}
-                    {/* <MdDelete
-                      style={{ color: "maroon", cursor: "pointer" }}
-                      onClick={() => {
-                        alert("Do you want to delete this item?");
-                        deleteItemById(element._id);
-                      }}
-                    /> */}
-                  </div>
-                </div>
                 <div className="item-image-wrapper">
                   <img
                     src={element.picUrls}
@@ -46,9 +30,16 @@ const UserShop = () => {
                     className="item-image"
                   />
                 </div>
+                <div className="item-header">
+                  <h3 className="item-title">{element.itemTitle}</h3>
+                  <div className="item-actions">
+                    {/* Edit and Delete icons can be added here if needed */}
+                  </div>
+                </div>
                 <div className="item-details">
+                  <p className="item-cost">₹ {element.itemCost}</p>
+
                   <p className="item-description">{element.description}</p>
-                  <p className="item-cost">Rs {element.itemCost}</p>
                   <p className="item-discount">
                     Discount: {element.discount} %
                   </p>

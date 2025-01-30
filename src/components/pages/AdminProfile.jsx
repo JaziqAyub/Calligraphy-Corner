@@ -2,11 +2,13 @@ import React, { useContext, useState } from "react";
 import "./AdminProfile.css";
 import { ContextJ } from "../../context/Store";
 import CreateItem from "../molecules/CreateItem";
+import Shop from "./Shop";
 
 const UserProfile = () => {
   const { user } = useContext(ContextJ);
   // console.log(user);
   const [showForm, setShowForm] = useState(false);
+  const [showShop, setShowShop] = useState(false);
   // const [showUploadForm, setShowUploadForm] = useState(false);
   return (
     <>
@@ -34,6 +36,13 @@ const UserProfile = () => {
               }}
             >
               Add Item
+            </button>
+            <button
+              onClick={() => {
+                
+              }}
+            >
+              Admin Shop
             </button>
           </div>
         )}
