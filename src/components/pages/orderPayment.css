@@ -43,6 +43,10 @@ body {
     flex-direction: column;
     gap: 10px;
     margin-top: 15px;
+    >select{
+      height: 2.5rem;
+      border-radius: 0.4rem;
+    }
   }
   
   form input {
@@ -60,8 +64,8 @@ body {
   }
   
   /* Button Styles */
-  .buy-now-btn {
-    background-color: #007bff;
+  .orderbuy-now-btn {
+    background-color: #161717;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -69,15 +73,15 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    margin-top: 10px;
+    margin-top: 2rem;
   }
   
-  .buy-now-btn:hover {
-    background-color: #0056b3;
+  .orderbuy-now-btn:hover {
+    background-color:  #3e5b52;
     transform: scale(1.02);
   }
   
-  .buy-now-btn:active {
+  .orderbuy-now-btn:active {
     background-color: #004080;
   }
   

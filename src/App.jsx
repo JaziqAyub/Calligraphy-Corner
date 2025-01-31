@@ -21,6 +21,7 @@ import UploadItemPic from "./components/molecules/UploadItemPic";
 import OrderPayment from "./components/pages/OrderPayment";
 import PaymentMethod from "./components/pages/PaymentMethod";
 import UserShop from "./components/pages/UserShop";
+import Description from "./components/pages/Description";
 
 const App = () => {
   const message =
@@ -77,6 +78,7 @@ const App = () => {
             <Route path = "/adminshop" element= {<Shop/>}/>
             <Route path = "/usershop" element= {<UserShop/>}/>
             <Route path = "/admin/upload" element= {<UploadItemPic/>}/>
+            <Route path = "/item/description/:id" element= {<Description/>}/>
             
             {/* paymentRoute */}
             <Route path = "/order/payment/:id" element= {<OrderPayment/>}/>

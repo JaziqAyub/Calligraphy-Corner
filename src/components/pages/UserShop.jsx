@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { ContextJ } from "../../context/Store";
-import "./Shop.css";
+// import "./Shop.css";
 import EditForm from "../atoms/EditForm";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./UserShop.css";
+
 
 const UserShop = () => {
   const { item } = useContext(ContextJ);
@@ -19,35 +21,37 @@ const UserShop = () => {
       {editForm ? (
         <EditForm setEditForm={setEditForm} />
       ) : (
-        <div className="items">
+        <div className="useritems">
           {Array.isArray(item) && item.length > 0 ? (
             item.map((element, index) => (
-              <div className="item" key={element.id || index}>
-                <div className="item-image-wrapper">
+              <div className="useritem" key={element.id || index}>
+                <div className="useritem-image-wrapper">
+                <Link to={`/item/description/${element._id}`}>
                   <img
                     src={element.picUrls}
-                    alt={element.itemTitle}
-                    className="item-image"
+                    alt={element.itemTitle}user
+                    className="useritem-image"
                   />
+                  </Link>
                 </div>
-                <div className="item-header">
-                  <h3 className="item-title">{element.itemTitle}</h3>
-                  <div className="item-actions">
+                <div className="useritem-header">
+                  <h3 className="useritem-title">{element.itemTitle}</h3>
+                  <div className="useritem-actions">
                     {/* Edit and Delete icons can be added here if needed */}
                   </div>
                 </div>
-                <div className="item-details">
-                  <p className="item-cost">₹ {element.itemCost}</p>
+                <div className="useritem-details">
+                  <p className="useritem-cost">₹ {element.itemCost}</p>
 
-                  <p className="item-description">{element.description}</p>
-                  <p className="item-discount">
+                  {/* <p className="item-description">{element.description}</p> */}
+                  {/* <p className="item-discount">
                     Discount: {element.discount} %
-                  </p>
-                  <p className="item-category">#{element.category}</p>
+                  </p> */}
+                  {/* <p className="item-category">#{element.category}</p> */}
                 </div>
                 <button
                   onClick={() => navigate(`/order/payment/${element._id}`)}
-                  className="buy-now-btn"
+                  className="userbuy-now-btn"
                 >
                   Buy Now
                 </button>

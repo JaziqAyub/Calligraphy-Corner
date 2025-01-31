@@ -52,7 +52,7 @@ const UploadItemPic = () => {
           if (itemId !== null) {
             const upload = await UploadItemPicture(formData, itemId);
             if (upload) {
-              navigate("/adminshop");
+              navigate("/usershop");
               toast.success("Item created successfully!");
             }
           }

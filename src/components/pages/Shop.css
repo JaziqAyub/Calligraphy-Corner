@@ -4,17 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-  .heroShop{
-    height: 37vh;
-    background-color:  #3e5b52;
-    p{
-      color: white;
-      font-weight: 600;
-      margin-left: 6.7rem;
-      padding-top: 6rem;
-      font-size: 3rem;
-    }
-  }
+ 
   /* Main container for all items */
   .items {
     display: flex;
@@ -29,7 +19,7 @@
   /* Individual item card */
   .item {
     /* background-color: #ffffff; */
-    border-radius: 12px;
+    border-radius: 2px solid red;
     /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); */
     overflow: hidden;
     width: 320px;
@@ -122,7 +112,7 @@
     color: #111111 !important;
     font-weight: 600 !important;
     margin-bottom: 8px !important;
-    margin-top: -1.2em !important;
+    /* margin-top: 2em !important; */
     text-align: center !important; /* Center the text */
   }
   
@@ -130,7 +120,7 @@
     font-size: 1em !important;
     color: #4caf50 !important;
     font-weight: 500 !important;
-    margin-bottom: 8px !important;
+    /* margin-bottom: 8px !important; */
     text-align: center !important;
   }
   
@@ -142,8 +132,9 @@
     width: 50% !important;
     /* border-radius: 20px !important; */
     display: inline-block !important;
-    margin-top: -10px !important;
     margin: auto !important;
+    margin-top: 20px !important;
+
     text-align: center !important;
   }
   

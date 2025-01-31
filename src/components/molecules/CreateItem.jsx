@@ -94,7 +94,7 @@ const CreateItem = ({ setShowForm }) => {
               <button
                 onClick={() => {
                   // createItems(formData);
-                  navigate("/adminshop");
+                  navigate("/usershop");
                 }}
               >
                 Submit

@@ -3,11 +3,11 @@ import { ContextJ } from "../../context/Store";
 import "./Shop.css";
 import EditForm from "../atoms/EditForm";
 import { MdDelete, MdEdit } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import Order from "./Order";
 
 const Shop = () => {
-  const { user,  deleteItemById } = useContext(ContextJ);
+  const { user, deleteItemById } = useContext(ContextJ);
   const [editForm, setEditForm] = useState(false);
   // const [showOrder, setShowOrder] = useState(false);
 
@@ -21,13 +21,21 @@ const Shop = () => {
   // const navigate = useNavigate()
   return (
     <>
-    <h1 style={{"textAlign":"center", "color" : "white", backgroundColor: "darkolivegreen" , fontFamily: "sans-serif"}}>ADMIN DASHBOARD</h1>
+      <h1
+        style={{
+          textAlign: "center",
+          color: "white",
+          backgroundColor: "darkolivegreen",
+          fontFamily: "sans-serif",
+        }}
+      >
+        ADMIN DASHBOARD
+      </h1>
 
       {editForm ? (
         <EditForm setEditForm={setEditForm} />
       ) : (
         <div className="items">
-          
           {user.items &&
             user.items.map((element, index) => (
               <div className="item" key={element.id || index}>
@@ -58,8 +66,9 @@ const Shop = () => {
                   />
                 </div>
                 <div className="item-details">
-                  <p className="item-description">{element.description}</p>
                   <p className="item-cost">Rs {element.itemCost}</p>
+
+                  <p className="item-description">{element.description}</p>
                   <p className="item-discount">
                     Discount: {element.discount} %
                   </p>
@@ -84,5 +93,4 @@ const Shop = () => {
     </>
   );
 };
-
 export default Shop;

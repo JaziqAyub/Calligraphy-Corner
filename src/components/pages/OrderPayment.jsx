@@ -36,12 +36,13 @@ const OrderPayment = () => {
       <h2>Address Details</h2>
       <div className="item-order">
         <form>
-          <input
-            type="text"
-            placeholder="Payment Mode"
-            name="paymentMode"
-            onChange={handleChange}
-          />
+          <select name="paymentMode" onChange={handleChange}>
+            <option value="">Select Payment Mode</option>
+            <option value="card">Card</option>
+            <option value="cod">Cash On Delivery</option>
+            <option value="online">Upi</option>
+          </select>
+
           <input
             type="text"
             placeholder="Shipping Address"
@@ -68,7 +69,7 @@ const OrderPayment = () => {
           />
         </form>
 
-        <button onClick={handleOrder} className="buy-now-btn">
+        <button onClick={handleOrder} className="orderbuy-now-btn">
           Proceed for payment
         </button>
       </div>

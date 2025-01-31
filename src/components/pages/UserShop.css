@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    /* font-family: Arial, sans-serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .heroShop{
+    height: 37vh;
+    background-color:  #3e5b52;
+    p{
+      color: white;
+      font-weight: 600;
+      margin-left: 6.7rem;
+      padding-top: 6rem;
+      font-size: 3rem;
+    }
+  }
+  
+  .useritems {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* grid-template-columns: repeat(auto-fit, minmax(10px, 1fr)); */
+    gap: 100px;
+    padding: 20px;
+    justify-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  
+  .useritem {
+    /* border: 5px solid red; */
+
+    /* background-color: #ffffff; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .useritem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .useritem-image-wrapper {
+    overflow: hidden;
+  }
+  
+  .useritem-image {
+    width: 100%;
+    height: 400px;
+    display: block;
+    transition: transform 0.3s;
+  }
+  
+  .useritem-image-wrapper:hover .useritem-image {
+    transform: scale(1.1);
+  }
+  
+  .useritem-header {
+    text-align: center;
+    padding: 10px 15px;
+  }
+  
+  .useritem-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #181717;
+    margin: 0;
+    margin-top: 15px;
+  }
+  
+  .useritem-details {
+    text-align: center;
+    padding: 10px 15px;
+  }
+  
+  .useritem-cost {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #1e1c1c;
+    margin-top: -10px;
+  }
+  
+  .userbuy-now-btn {
+    display: block;
+    width: calc(55% - 30px);
+    margin: 15px auto 10px;
+    padding: 10px 15px;
+    background-color: #161717f5;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .userbuy-now-btn:hover {
+    background-color:  #3e5b52;
+  }
+  
