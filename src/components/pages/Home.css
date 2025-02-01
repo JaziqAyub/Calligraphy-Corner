@@ -265,8 +265,8 @@ body {
     width: 300px;
   }
 }
-.customImg1{
-margin-left: 10px;
+.customImg1 {
+  margin-left: 10px;
 }
 
 .customImg2 {
@@ -390,35 +390,27 @@ margin-left: 10px;
   font-size: 0.9rem;
 }
 
-
 /* ARTIST  */
-.artist{
+.artist {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   /* border: 2px solid red; */
   min-height: 35vh;
-  h1{
+  h1 {
     font-weight: 450;
     color: #292929;
   }
-  p{
+  p {
     line-height: 1.6;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #898e88;
     width: 90%;
     margin-top: 1.8rem;
     text-align: center;
   }
 }
-
-
-
-
-
-
-
 
 .home-container {
   display: flex;
@@ -532,6 +524,73 @@ margin-left: 10px;
 .Increment {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.testimonials {
+  /* position: relative; */
+  /* text-align: center; */
+  padding: 2rem;
+  /* background-color: #f8f8f8; */
+  height: 300px;
+  /* border: 1px solid red; */
+}
+
+.testimonial-container {
+  max-width: 1000px;
+  min-width: 1000px;
+  height: 400px;
+  /* border: 2px solid rgb(24, 12, 163); */
+  margin: 0 auto;
+  padding: 20px;
+  position: relative; /* enables absolute positioning of children */
+  /* border: 2px solid red; */
+  div {
+    margin-top: 50px;
+  }
+}
+
+.testimonial-container h1 {
+  margin-bottom: 20px;
+  font-weight: 450;
+  color: #292929;
+}
+
+.testimonial-container p {
+  line-height: 1.6;
+  font-size: 1.2rem;
+  color: #898e88;
+}
+
+.testimonial-container h4 {
+  margin-top: 20px;
+  color: #292929;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Positioning the arrow buttons */
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* adjust size as needed */
+  color: rgba(128, 128, 128, 0.821);
+}
+
+/* Place the left arrow on the left side */
+.arrow-left {
+  left: -200px; /* adjust offset as needed */
+  font-size: 50px;
+}
+
+/* Place the right arrow on the right side */
+.arrow-right {
+  right: -200px; /* adjust offset as needed */
+  font-size: 50px;
 }
 
 @media (max-width: 768px) {

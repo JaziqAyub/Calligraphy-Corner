@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 // import Card from "../sharedComponent/Card";
 import "./Home.css";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import HeroImg from "../../assets/HeroImg.png";
 import Component2 from "../../assets/Component2.png";
 import ALLAH from "../../assets/ALLAH.jpg";
@@ -17,10 +17,49 @@ import { RiBusLine } from "react-icons/ri";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { MdWorkspacePremium } from "react-icons/md";
 import { LuHeartHandshake } from "react-icons/lu";
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+import "animate.css";
 
-const Home = (props) => {
+const Home = () => {
   const navigate = useNavigate();
 
+  const testimonialsData = [
+    {
+      heading: "Testimonials",
+      message:
+        "“I was truly mesmerized by the exceptional artistry of Calligraphy Corner. Every stroke of their brush transforms my words into a masterpiece that not only captures the essence of my message but also reflects the rich Kashmiri heritage. The delicate balance of traditional technique with a modern touch makes each creation a timeless work of art. I couldn’t be happier with the result and the personal care they put into every detail.”",
+      person: "- Yayha Khan",
+    },
+    {
+      heading: "Testimonials",
+      message:
+        "“From my very first consultation, Calligraphy Corner impressed me with their passion for the craft. They took the time to understand my vision and infused it with a unique blend of classical calligraphy and contemporary design. The result is a stunning piece that elevates the beauty of my words. Every detail speaks volumes about their dedication to quality and creativity.”",
+      person: "- Zulfikar Imtiyaz",
+    },
+    {
+      heading: "Testimonials",
+      message:
+        "“Calligraphy Corner has a rare talent for turning simple phrases into a visual symphony of art and emotion. Their work is a beautiful fusion of tradition and innovation, where each letter is crafted with precision and care. I am incredibly proud to display this artwork and grateful for the experience.”",
+      person: "- Noorain Niyaz",
+    },
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const handleNext = () => {
+    // Move to the next testimonial (wrap around to start if at end)
+    setCurrentTestimonial(
+      (prevIndex) => (prevIndex + 1) % testimonialsData.length
+    );
+  };
+
+  const handlePrev = () => {
+    // Move to the previous testimonial (wrap around to end if at start)
+    setCurrentTestimonial(
+      (prevIndex) =>
+        (prevIndex - 1 + testimonialsData.length) % testimonialsData.length
+    );
+  };
   // const [username, setUsername] = useState("")
 
   // const fetchData = async () => {
@@ -38,13 +77,15 @@ const Home = (props) => {
   //   fetchData()
   // },[])
 
-
   const handleExplore = () => {
     navigate("/usershop");
   };
 
   const handleCustomization = () => {
-    window.open("https://www.instagram.com/direct/t/17845846670587721", "_blank");
+    window.open(
+      "https://www.instagram.com/direct/t/17845846670587721",
+      "_blank"
+    );
   };
 
   // const {store} = useContext(ContextJ)
@@ -227,26 +268,49 @@ const Home = (props) => {
                 </ul>
               </p>
             </div>
-            <button className="customButton" onClick={handleCustomization}>Customize</button>
+            <button className="customButton" onClick={handleCustomization}>
+              Customize
+            </button>
           </div>
         </div>
       </div>
 
       {/* Testimonials  */}
 
-      <div className="testimonials">
-        <div className="testHeading">
-          <h1>Testimonials</h1>
-          <p>
-            “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-            quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-            vulputate velit imperdiet dolor tempor tristique. Pellentesque
-            habitant morbi tristique senectus et netus et malesuada fames ac
-            turpis egestas. Integer convallis volutpat dui quis scelerisque.”
+      <div
+        className="testimonials"
+        style={{ position: "relative", margin: "2rem 0" }}
+      >
+        <div className="testimonial-container">
+          <h1>{testimonialsData[currentTestimonial].heading}</h1>
+          <div  key={currentTestimonial} // re-renders on testimonial change
+            className="animate__animated animate__fadeInRightBig">
+          <p
+           
+          >
+            {testimonialsData[currentTestimonial].message}
           </p>
-        </div>
-        <div className="testPerson">
-          <h4>- John Doe</h4>
+          <h4 >{testimonialsData[currentTestimonial].person}</h4>
+          </div>
+         
+
+          {/* Left arrow button */}
+          <button
+            className="arrow-left"
+            onClick={handlePrev}
+            aria-label="Previous testimonial"
+          >
+            <IoIosArrowDropleft />
+          </button>
+
+          {/* Right arrow button */}
+          <button
+            className="arrow-right"
+            onClick={handleNext}
+            aria-label="Next testimonial"
+          >
+            <IoIosArrowDropright />
+          </button>
         </div>
       </div>
 

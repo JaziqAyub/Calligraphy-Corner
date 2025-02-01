@@ -22,6 +22,7 @@ import OrderPayment from "./components/pages/OrderPayment";
 import PaymentMethod from "./components/pages/PaymentMethod";
 import UserShop from "./components/pages/UserShop";
 import Description from "./components/pages/Description";
+import LandingPage from "./components/pages/LandingPage";
 
 const App = () => {
   const message =
@@ -53,6 +54,7 @@ const App = () => {
     fetchItem();
   }, [loading, fetchData, fetchItem]);
 
+
   return (
     <>
       <Navbar />
@@ -68,25 +70,27 @@ const App = () => {
           <Route path="/user/login" element={<Login />} />
           <Route path="/user/forgotpass" element={<ForgotPass />} />
           <Route path="/user/resetPass/:userId" element={<ResetPass />} />
+          <Route path="/landingpage" element={<LandingPage />} />
 
           {/* secureRoutes  */}
           <Route path="/user/delete/:userId" element={<DeleteUser />} />
           <Route path="/user/secureprofile" element={<SecureProfile />} />
 
           {/* frontend  */}
-            <Route path = "/admin/profile" element= {<UserProfile/>}/>
-            <Route path = "/adminshop" element= {<Shop/>}/>
-            <Route path = "/usershop" element= {<UserShop/>}/>
-            <Route path = "/admin/upload" element= {<UploadItemPic/>}/>
-            <Route path = "/item/description/:id" element= {<Description/>}/>
-            
-            {/* paymentRoute */}
-            <Route path = "/order/payment/:id" element= {<OrderPayment/>}/>
-            <Route path = "/payment/:orderId" element= {<PaymentMethod/>}/>
+          <Route path="/admin/profile" element={<UserProfile />} />
+          <Route path="/adminshop" element={<Shop />} />
+          <Route path="/usershop" element={<UserShop />} />
+          <Route path="/admin/upload" element={<UploadItemPic />} />
+          <Route path="/item/description/:id" element={<Description />} />
+
+          {/* paymentRoute */}
+          <Route path="/order/payment/:id" element={<OrderPayment />} />
+          <Route path="/payment/:orderId" element={<PaymentMethod />} />
         </Routes>
       </div>
 
       <Footer />
+     
     </>
   );
 };

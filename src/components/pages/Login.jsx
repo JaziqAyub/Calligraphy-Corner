@@ -1,8 +1,8 @@
 // import axios from "axios";
 import React, { useContext, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "./Login.css"
+import "./Login.css";
 import { ContextJ } from "../../context/Store";
 
 const Login = (props) => {
@@ -14,7 +14,7 @@ const Login = (props) => {
     password,
   };
 
-  const {handleLogin} = useContext(ContextJ)
+  const { handleLogin } = useContext(ContextJ);
   // const url = "http://localhost:4011/user/login";
   // const navigate = useNavigate();
   // const handleLogin = async (e) => {
@@ -69,9 +69,15 @@ const Login = (props) => {
               setPassword(e.target.value);
             }}
           />
-          <button onClick={(e)=>{handleLogin(e, formData)}}>Submit</button>
+          <button
+            onClick={(e) => {
+              handleLogin(e, formData);
+            }}
+          >
+            Submit
+          </button>
           <div className="forgotpass">
-             <Link to="/user/forgotpass">Forgot Password?</Link>     
+            <Link to="/user/forgotpass">Forgot Password?</Link>
           </div>
         </form>
       </div>
