@@ -1,0 +1,36 @@
+.about-container {
+    background: linear-gradient(135deg, #f0f0f0, #d7e3fc);
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .about-container p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-container p strong {
+    color: #ffbf00;
+    font-weight: bold;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .about-container p {
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  }
+  

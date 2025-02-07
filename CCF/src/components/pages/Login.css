@@ -1,0 +1,13 @@
+.forgotpass {
+    margin: 0 auto;
+    >a{
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.forgotpass:hover{
+    >a{
+    color: rgb(205, 136, 9);
+    }
+}

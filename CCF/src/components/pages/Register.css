@@ -1,0 +1,67 @@
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #1c1c1c, #343434);
+  }
+  
+  /* Form box */
+  .register form {
+    background: #222;
+    color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Input fields */
+  .register form input {
+    padding: 0.9rem;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #f5f5f5;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .register form input:focus {
+    border-color: #ff6600;
+    outline: none;
+    background: #292929;
+    box-shadow: 0 0 5px rgba(255, 191, 0, 0.5);
+  }
+  
+  .register form button {
+    background: linear-gradient(135deg, #ffbf00, #ffaa00);
+    color: #1c1c1c;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .register form button:hover {
+    background: linear-gradient(135deg, #ffaa00, #ffbf00);
+    transform: scale(1.03);
+    color: #111;
+  }
+  
+  /* Subtle hover glow on the form */
+  .register form:hover {
+    box-shadow: 0 6px 50px rgba(255, 191, 0, 0.2);
+  }
+  
+
+  
