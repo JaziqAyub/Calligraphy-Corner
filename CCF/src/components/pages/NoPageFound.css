@@ -1,0 +1,39 @@
+/* Container styling */
+.no-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.no-page-container h1 {
+    font-size: 140px;
+    color: #ff4757; 
+    margin: 0;
+    animation: pulse 1.7s infinite;
+}
+
+.no-page-container p {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #666;
+}
+
+.no-page-container a {
+    text-decoration: none;
+    color: white;
+    background-color: #353739;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+.no-page-container a:hover {
+    background-color: #6fcd55;
+    transform: scale(1.05);
+}

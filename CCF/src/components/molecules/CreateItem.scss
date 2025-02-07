@@ -1,0 +1,114 @@
+.createitem {
+    min-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .description {
+      height: 100px; /* Height for multi-line input */
+      width: 82%; /* Make it as wide as other inputs */
+      padding: 10px; /* Add padding for better readability */
+      border-radius: 7px; /* Optional: Rounded corners */
+      border: 1px solid #ccc; /* Optional: Border style */
+      font-size: 1rem;
+      /* Optional: Text size */
+      font-family: 'Arial', sans-serif;
+      
+      &::placeholder {
+        color: #aaa;
+      } 
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+  
+      input {
+        width: 80%;
+        padding: 12px 15px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      
+        &:focus {
+          border-color: #007bff;
+          box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+          outline: none;
+        }
+  
+        &::placeholder {
+          color: #aaa;
+        }
+      }
+    }
+  
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+  
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+  
+      &.cancel-btn {
+        background: #6c757d;
+  
+        &:hover {
+          background: #5a6268;
+        }
+      }
+  
+      &.upload-btn {
+        background: #28a745;
+  
+        &:hover {
+          background: #218838;
+        }
+      }
+    }
+  
+    .upload-btn {
+      margin-bottom: 15px;
+    }
+  
+    @media (max-width: 568px) {
+      padding: 20px;
+      
+  
+      h3 {
+        font-size: 1.5rem;
+      }
+  
+      button {
+        font-size: 0.9rem;
+      }
+   
+    }
+
+  }
+  
