@@ -55,7 +55,10 @@ const App = () => {
           <div className="main">
             <Routes>
               <Route path="*" element={<NoPageFound />} />
-              <Route path="/" element={<Home message={message} happy={happy} />} />
+              <Route
+                path="/"
+                element={<Home message={message} happy={happy} />}
+              />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/user/register" element={<Register />} />

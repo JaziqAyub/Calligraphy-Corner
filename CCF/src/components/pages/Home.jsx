@@ -132,21 +132,19 @@ const Home = () => {
         <div className="featureImgs">
           <div>
             <img src={ALLAH} alt="img1" />
-            <p>Small Canvas</p>
-            <h2>₹ 1499</h2>
+            <p>Big Canvases & Small Canvases</p>
           </div>
           <div>
             <img src={Bookmark} alt="img2" />
-            <p>Bookmark</p>
-            <h2>₹ 299</h2>
+            <p>Bookmarks</p>
           </div>
           <div>
             <img src={birthday} alt="img3" />
-            <p>Birthday Calendar</p>
-            <h2>₹ 599</h2>
+            <p>Birthday Calendars</p>            
           </div>
         </div>
       </div>
+      <p className="blinking-text" style={{fontSize:"1.5rem"}}>and many more things...</p>
 
       {/* chooseUS  */}
 
@@ -283,16 +281,13 @@ const Home = () => {
       >
         <div className="testimonial-container">
           <h1>{testimonialsData[currentTestimonial].heading}</h1>
-          <div  key={currentTestimonial} // re-renders on testimonial change
-            className="animate__animated animate__fadeInRightBig">
-          <p
-           
+          <div
+            key={currentTestimonial} // re-renders on testimonial change
+            className="animate__animated animate__fadeInRightBig"
           >
-            {testimonialsData[currentTestimonial].message}
-          </p>
-          <h4 >{testimonialsData[currentTestimonial].person}</h4>
+            <p>{testimonialsData[currentTestimonial].message}</p>
+            <h4>{testimonialsData[currentTestimonial].person}</h4>
           </div>
-         
 
           {/* Left arrow button */}
           <button
