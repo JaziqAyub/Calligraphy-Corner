@@ -86,7 +86,6 @@ app.post("/customer/pay/order", isAuthenticated, createPaymentIntent);
 //cart
 app.post("/add-to-cart", isAuthenticated, addToCart);
 
-
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {

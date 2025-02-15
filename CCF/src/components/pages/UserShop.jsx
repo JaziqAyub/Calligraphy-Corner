@@ -16,7 +16,6 @@ const UserShop = () => {
 
   console.log(item); // For debugging
 
-  // Step 1: Filter the items based on the selected category.
   const filteredItems =
     Array.isArray(item) && item.length > 0
       ? categoryFilter === "All"
@@ -24,14 +23,13 @@ const UserShop = () => {
         : item.filter((element) => element.category === categoryFilter)
       : [];
 
-  // Step 2: Sort the filtered items based on the sortOption.
   const sortedItems = [...filteredItems].sort((a, b) => {
     if (sortOption === "LowToHigh") {
       return a.itemCost - b.itemCost;
     } else if (sortOption === "HighToLow") {
       return b.itemCost - a.itemCost;
     } else {
-      return 0; // No sorting if "None" is selected.
+      return 0; 
     }
   });
 

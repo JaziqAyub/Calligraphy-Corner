@@ -30,16 +30,24 @@ const App = () => {
 
   const { fetchData, loading, fetchItem } = useContext(ContextJ);
 
+  // Fetch initial data as before
   useEffect(() => {
     fetchData();
     fetchItem();
   }, [loading, fetchData, fetchItem]);
 
-  // Show Landing Page only once
-  const [showLanding, setShowLanding] = useState(() => {
-    return localStorage.getItem("landingShown") ? false : true;
-  });
+  // Initially set showLanding to false.
+  const [showLanding, setShowLanding] = useState(false);
 
+  // On mount, check localStorage to see if landing page was already shown.
+  useEffect(() => {
+    const landingAlreadyShown = localStorage.getItem("landingShown");
+    if (!landingAlreadyShown) {
+      setShowLanding(true);
+    }
+  }, []);
+
+  // When the landing page is closed, set the flag in localStorage.
   const handleCloseLanding = () => {
     localStorage.setItem("landingShown", "true");
     setShowLanding(false);
@@ -55,26 +63,20 @@ const App = () => {
           <div className="main">
             <Routes>
               <Route path="*" element={<NoPageFound />} />
-              <Route
-                path="/"
-                element={<Home message={message} happy={happy} />}
-              />
+              <Route path="/" element={<Home message={message} happy={happy} />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/user/register" element={<Register />} />
               <Route path="/user/login" element={<Login />} />
               <Route path="/user/forgotpass" element={<ForgotPass />} />
               <Route path="/user/resetPass/:userId" element={<ResetPass />} />
-
               <Route path="/user/delete/:userId" element={<DeleteUser />} />
               <Route path="/user/secureprofile" element={<SecureProfile />} />
-
               <Route path="/admin/profile" element={<UserProfile />} />
               <Route path="/adminshop" element={<Shop />} />
               <Route path="/usershop" element={<UserShop />} />
               <Route path="/admin/upload" element={<UploadItemPic />} />
               <Route path="/item/description/:id" element={<Description />} />
-
               <Route path="/order/payment/:id" element={<OrderPayment />} />
               <Route path="/payment/:orderId" element={<PaymentMethod />} />
             </Routes>

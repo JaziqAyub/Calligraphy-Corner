@@ -1,0 +1,76 @@
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f5f5f5;
+  }
+  
+  .payment-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  .payment-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .payment-modes button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+  }
+  
+  .payment-modes button.active {
+    background: #007bff;
+    color: white;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .card-details {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .small {
+    width: 48%;
+  }
+  
+  .payment-buttons button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pay-now {
+    background: #28a745;
+    color: white;
+  }
+  
+  .cancel-order {
+    background: #dc3545;
+    color: white;
+  }
+  

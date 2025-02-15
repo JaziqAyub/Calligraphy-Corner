@@ -140,11 +140,13 @@ const Home = () => {
           </div>
           <div>
             <img src={birthday} alt="img3" />
-            <p>Birthday Calendars</p>            
+            <p>Birthday Calendars</p>
           </div>
         </div>
       </div>
-      <p className="blinking-text" style={{fontSize:"1.5rem"}}>and many more things...</p>
+      <p className="blinking-text" style={{ fontSize: "1.5rem" }}>
+        and many more things...
+      </p>
 
       {/* chooseUS  */}
 

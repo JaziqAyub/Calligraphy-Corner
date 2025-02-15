@@ -22,7 +22,7 @@ const OrderPayment = () => {
   };
 
   const handleOrder = async () => {
-    const selectedItem = item.find((i) => i._id === id); // Find the correct item
+    const selectedItem = item.find((i) => i._id === id);
     if (selectedItem) {
       await createOrder(selectedItem._id, formData);
       toast.success("Order created successfully!");

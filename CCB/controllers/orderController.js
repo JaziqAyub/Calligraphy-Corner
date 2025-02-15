@@ -11,8 +11,8 @@ const createOrder = async (req, res) => {
     const user = await User.findById(userId);
     const { paymentMode, shippingAddress, landmark, city, postalCode } =
       req.body;
-
-    if (!item || item.isActive === false) {
+      // || item.isActive === false
+    if (!item ) {
       return messageHandler(res, 404, "Item unavailable.");
     }
     if (user.role === "aDmin" || !user) {
