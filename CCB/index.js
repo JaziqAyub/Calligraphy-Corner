@@ -1,4 +1,4 @@
-const express = require("express"); //import express from node modules
+const express = require("express");
 const {
   registerHandler,
   loginHandler,
@@ -12,7 +12,6 @@ const {
   uploadItemPic,
 } = require("./controllers/userController");
 const connectDb = require("./config/connectDb");
-const app = express(); //instance of express
 const cors = require("cors");
 const { isAuthorised } = require("./auth/isAuthorised");
 const { isAuthenticated } = require("./auth/isAuthenticated");
@@ -35,59 +34,64 @@ const {
 const { createPaymentIntent } = require("./controllers/paymentController");
 const { multmid } = require("./middlewares/multer");
 const { addToCart } = require("./controllers/cartController");
-require("dotenv").config(); //.ENV
+require("dotenv").config();
 
-//middleware
-app.use(express.json()); //to read json in thunderclient etc
+const app = express();
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+// CORS configuration: allow requests from your Vercel frontend
+const allowedOrigin = "https://calligraphy-corner.vercel.app";
 app.use(
   cors({
-    origin: "http://localhost:3000", //koi bhi port accept
-    credentials: true, //acceptcookies
+    origin: allowedOrigin,
+    credentials: true,
   })
-); //fo safety in b/w ports from front end to back end and vice versa
-app.use(cookieParser()); //for saving userId, otken or etc in cookies
+);
 
-//To connect with the Db
+app.use(cookieParser());
+
+// Connect to the Database
 connectDb();
 
-// Apis (routes) User routes
+// Routes
 app.get("/", (req, res) => {
   res.json({ message: "Hello!" });
 });
-//userRoutes
-app.post("/user/register", registerHandler); //done
-app.post("/user/login", loginHandler); //done
-app.post("/user/forgotPass", forgotPassHandler); //done
-app.put("/user/password/reset/:userId", resetPassHandler); //done
+
+// User Routes
+app.post("/user/register", registerHandler);
+app.post("/user/login", loginHandler);
+app.post("/user/forgotPass", forgotPassHandler);
+app.put("/user/password/reset/:userId", resetPassHandler);
 app.get("/user/isAuth/:token", isAuthorised);
-//secureRouteOfUser
-app.post("/user/delete", isAuthenticated, deleteUserHandler); //done
-app.get("/getUser", isAuthenticated, getUser); //done
+app.post("/user/delete", isAuthenticated, deleteUserHandler);
+app.get("/getUser", isAuthenticated, getUser);
 app.post("/user/changePassword", isAuthenticated, changePasshandler);
 
-//itemRoutes
-app.post("/admin/createItem", isAuthenticated, createItem); //done
+// Item Routes
+app.post("/admin/createItem", isAuthenticated, createItem);
 app.get("/items/all", isAuthenticated, getAllItems);
 app.get("/items/item", isAuthenticated, getItemById);
 app.put("/item/edit", isAuthenticated, editItemById);
-app.delete("/item/delete/:itemId", isAuthenticated, deleteItemById); //done
-//cloudinary
-app.post("/admin/upload/Itempicture", multmid, isAuthenticated, uploadItemPic); //done
+app.delete("/item/delete/:itemId", isAuthenticated, deleteItemById);
+app.post("/admin/upload/Itempicture", multmid, isAuthenticated, uploadItemPic);
 
-//orderRoutes
+// Order Routes
 app.post("/customer/create/order", isAuthenticated, createOrder);
 app.get("/customer/fetch/order", isAuthenticated, getOrderById);
 app.put("/customer/cancel/order", isAuthenticated, cancelOrder);
 app.get("/customer/fetchAll/orders", isAuthenticated, getAllOrders);
 
-//paymentRoute
+// Payment Route
 app.post("/customer/pay/order", isAuthenticated, createPaymentIntent);
 
-//cart
+// Cart Route
 app.post("/add-to-cart", isAuthenticated, addToCart);
 
-const PORT = process.env.PORT;
-
+// Listen on PORT from environment variable or default to 4011
+const PORT = process.env.PORT || 4011;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
