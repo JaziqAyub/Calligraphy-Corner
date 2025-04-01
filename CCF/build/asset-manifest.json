@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4fd1753b.css",
+    "main.js": "/static/js/main.3df6dcb6.js",
+    "static/media/chaar.png": "/static/media/chaar.4dcbf3f7d1a5c91a1088.png",
+    "static/media/logo.png": "/static/media/logo.d2cd0b544ebad5072aff.png",
+    "static/media/circle.jpg": "/static/media/circle.763434a782bb72203258.jpg",
+    "static/media/HeroImg.png": "/static/media/HeroImg.3a49b14df926b3580866.png",
+    "static/media/Bookmark.jpg": "/static/media/Bookmark.02903010be44bd4799a5.jpg",
+    "static/media/ALLAH.jpg": "/static/media/ALLAH.f772fd2941936c0dfc87.jpg",
+    "static/media/birthday.jpg": "/static/media/birthday.b4fc8190f971e4c06ef6.jpg",
+    "static/media/cover.jpg": "/static/media/cover.d1d18abaa72d05882485.jpg",
+    "static/media/split.jpg": "/static/media/split.d413823980c23d064b16.jpg",
+    "static/media/Insta.jpeg": "/static/media/Insta.d4c73c1bd695f0aec2e4.jpeg",
+    "index.html": "/index.html",
+    "main.4fd1753b.css.map": "/static/css/main.4fd1753b.css.map",
+    "main.3df6dcb6.js.map": "/static/js/main.3df6dcb6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4fd1753b.css",
+    "static/js/main.3df6dcb6.js"
+  ]
+}
